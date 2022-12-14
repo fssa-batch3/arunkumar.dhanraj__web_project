@@ -1,0 +1,223 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Alegreya", serif;
+}
+header {
+  display: flex;
+
+  height: 65px;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: rgb(220 220 220) 0px 2px 8px;
+
+  position: sticky;
+  top: 0px;
+}
+.logo-div {
+  display: flex;
+
+  width: 180px;
+  height: 68px;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo-pic {
+  width: 40px;
+  border-radius: 50%;
+}
+.logo-name {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 29px;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  align-items: center;
+  width: 104px;
+  gap: 65px;
+}
+.nav-list {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+.login-btn {
+  font-size: 20px;
+  font-weight: lighter;
+  transition: 0.5s;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+
+  color: black;
+  padding: 6px 15px;
+  background-color: #94ca65;
+  border: none;
+  border-radius: 8px;
+}
+.nav-links a {
+  color: #132a13;
+  transition: 0.3s;
+}
+.nav-list:active {
+  opacity: 0.3;
+}
+.login-btn:active {
+  opacity: 0.3;
+}
+.login-btn:hover {
+  cursor: pointer;
+  /* background-color: aliceblue;
+  border: 1px solid; */
+  transform: scale(1.3);
+}
+.nav-list:hover {
+  color: #2a850e;
+  font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid;
+}
+#sec-1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+}
+.content h1 {
+  font-size: 40px;
+  font-weight: 550;
+}
+.content p {
+  font-size: 20px;
+}
+.content-image img {
+  width: 340px;
+  border-radius: 20px;
+}
+.content button {
+  font-size: 17px;
+  padding: 9px 19px;
+  background-color: #94ca65;
+  border: none;
+  border-radius: 20px;
+}
+.content button:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid;
+}
+
+.host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.host p {
+  font-size: 25px;
+}
+.host button {
+  padding: 8px 18px;
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #94ca65;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-1,
+.container-2,
+.container-3,
+.container-4 {
+  margin: 25px;
+  border-radius: 4px;
+  border: #132a13 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 700px;
+}
+.opponent-logo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.opponent-logo h1 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.opponent-logo p {
+  font-size: 20px;
+  text-align: center;
+}
+.adduser-p {
+  font-size: 28px;
+  text-align: center;
+  opacity: 0.7;
+}
+.add-user-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #2a850e;
+}
+.oppo-logo {
+  width: 150px;
+  border-radius: 50%;
+}
+.add-user {
+  width: 100px;
+}
+.place-date-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 12px;
+}
+.place-date-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.place-date-div div {
+  display: flex;
+  gap: 2px;
+}
+.place-date-div img {
+  width: 20px;
+  height: 20px;
+}
+.join-btn {
+  margin-top: 5px;
+  display: flex;
+  align-items: baseline;
+}
+.join-btn button {
+  font-size: 17px;
+  padding: 8px 39px;
+  background-color: #65e863;
+  border: none;
+  border-radius: 4px;
+}
+.join-btn button:hover {
+  cursor: pointer;
+  background-color: #2a850e;
+}
