@@ -156,6 +156,8 @@ textarea {
 .main-container {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 .requir-1 {
   display: flex;

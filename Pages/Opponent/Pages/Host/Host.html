@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assests/Css/host.css " />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <title>Host now</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <form>
+          <div class="form-div">
+            <label for="type">Game type</label>
+            <select name="gametype" id="gametype">
+              <option value="None">None</option>
+              <option value="10over">10 Overs</option>
+              <option value="12over">12 Overs</option>
+              <option value="16over">16 Overs</option>
+              <option value="20over">20 Overs</option>
+            </select>
+          </div>
+
+          <div class="form-div">
+            <label for="date">Pick a date</label>
+            <input type="date" id="day" name="day" />
+          </div>
+
+          <div class="form-div">
+            <label for="time">Pick a time</label>
+            <input type="time" id="time" name="time" />
+          </div>
+
+          <div class="form-div">
+            <textarea
+              name="ground"
+              id=""
+              cols="30"
+              rows="8"
+              placeholder="Mention your preferred Ground"
+            ></textarea>
+          </div>
+        </form>
+        <div class="turf">
+          <p>Don't have a ground</p>
+          <p>
+            <a href="../../../Turf/Turf.html"> <button>Book venue</button></a>
+          </p>
+        </div>
+        <div class="host-btn"><button>Host now</button></div>
+      </section>
+    </main>
+  </body>
+</html>

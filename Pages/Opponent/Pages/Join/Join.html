@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link rel="stylesheet" href="./Assests/Css/Join.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="form-div">
+      <form>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+
+        <!-- <label for="filetoupload" id="filetoupload">Team logo</label>
+      <input type="file" name="filetoupload" id="filetoupload" /> -->
+        <div class="team-logo-div">
+          <div class="team-logo">
+            <input
+              type="file"
+              name="uploadfile"
+              id="img"
+              style="display: none"
+            />
+            <label for="img" id="img">Team Logo</label>
+            <img src="./Assests/Images/camera.png" />
+          </div>
+        </div>
+
+        <label for="name">Team name</label>
+        <input type="name" id="name" />
+
+        <label for="skill">Skill Level</label>
+
+        <select name="skill" id="skill">
+          <option value="none">None</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Pro">Pro</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Professional">Professional</option>
+        </select>
+        <label for="strength"> Team strength </label>
+        <input type="text" id="strength" name="strength" />
+
+        <label for="message">Message</label>
+        <textarea
+          name="message"
+          id="#message"
+          cols="6"
+          rows="7"
+          placeholder="Eg:Let's fix the match"
+        ></textarea>
+        <div class="btn">
+          <button type="submit" form="form1" value="Submit">
+            SEND REQUEST
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+body {
+  font-family: "Alegreya", serif;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+section {
+  border: 1px solid;
+  width: fit-content;
+  padding: 30px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  font-size: 29px;
+  gap: 20px;
+}
+.form-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+input {
+  width: 400px;
+  height: 25px;
+}
+
+select {
+  width: 406px;
+  height: 28px;
+}
+.turf {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.turf button {
+  border: none;
+  font-size: 14px;
+  padding: 2px 9px;
+  background-color: rgb(144, 232, 146);
+  font-family: "Alegreya", serif;
+  border-radius: 3px;
+}
+.turf button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.turf p {
+  font-size: 15px;
+}
+.host-btn {
+  display: flex;
+  justify-content: center;
+}
+.host-btn button {
+  padding: 10px 20px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 5px;
+}
+.host-btn button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
