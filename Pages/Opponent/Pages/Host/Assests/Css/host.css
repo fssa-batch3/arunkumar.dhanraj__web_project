@@ -12,6 +12,7 @@ section {
   border: 1px solid;
   width: fit-content;
   padding: 30px;
+  border-radius: 5px;
   /* display: flex;
   flex-direction: column;
   justify-content: center;

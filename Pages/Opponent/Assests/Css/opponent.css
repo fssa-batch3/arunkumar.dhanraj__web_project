@@ -133,6 +133,10 @@ nav {
   border-radius: 20px;
   background-color: #94ca65;
 }
+.host button:hover {
+  cursor: pointer;
+  background-color: #2a850e;
+}
 .main-container {
   display: flex;
   flex-direction: column;
