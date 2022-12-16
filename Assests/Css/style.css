@@ -157,24 +157,15 @@ nav {
 
 #features {
   width: 100%;
-  height: 780px;
-  background-color: white;
+  height: 700px;
+  background-image: linear-gradient(to right, #00b09b, #96c93d);
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
 
-.feat-head {
-  padding-top: 1px;
-  text-align: center;
-  font-family: "Alegreya", serif;
-  font-size: 60px;
-  font-weight: bold;
-
-  text-shadow: 3px 3px grey;
-  letter-spacing: 2px;
-}
 .feat-para {
+  margin-top: 30px;
   text-align: center;
   font-family: "Alegreya", serif;
   font-weight: 200;
@@ -211,15 +202,25 @@ nav {
 
   font-family: "Alegreya", serif;
   background-color: #ffff;
-  border: 4px solid #efc507;
+  border: none;
   width: 300px;
   height: 400px;
   border-radius: 20px;
 }
+
+.container-turf:hover,
+.container-opponents:hover,
+.container-requirements:hover {
+  cursor: pointer;
+  box-shadow: 5px 10px 18px rgb(23, 224, 23);
+
+  transform: scale(1.1);
+}
+
 .feat-container button {
   padding: 10px 20px;
   background-color: white;
-  border: 2px solid #efc507;
+  border: 1px solid black;
   border-radius: 10px;
   font-size: 20px;
   font-family: "Alegreya", serif;
@@ -245,6 +246,12 @@ nav {
   align-items: center;
   flex: 1;
   text-align: center;
+}
+#about div:hover {
+  cursor: pointer;
+  border-radius: 15px;
+  border-top: rgb(23, 224, 23) 3px solid;
+  border-bottom: rgb(23, 224, 23) 3px solid;
 }
 #about h1 {
   font-size: 30px;
