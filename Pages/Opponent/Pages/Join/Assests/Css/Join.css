@@ -1,5 +1,17 @@
 body {
   font-family: "Alegreya", serif;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Take full size */
+  height: 100vh;
+  width: 100%;
+
+  /* Background */
+  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 141929.jpg")
+    center center / cover no-repeat;
 }
 .team-logo-div {
   display: flex;
@@ -44,6 +56,7 @@ form {
   height: 600px;
   padding: 30px;
   border-radius: 9px;
+  background-color: aliceblue;
 }
 input,
 select {

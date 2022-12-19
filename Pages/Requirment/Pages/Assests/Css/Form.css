@@ -5,13 +5,20 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Alegreya", serif;
-  background-image: linear-gradient(
-    129.1deg,
-    rgba(243, 199, 83, 1) 26.8%,
-    rgba(18, 235, 207, 1) 114.1%
-  );
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Take full size */
+  height: 120vh;
+  width: 100%;
+
+  /* Background */
+  background: url("../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 142828.jpg")
+    center center / cover no-repeat;
 }
-header {
+/* header {
   display: flex;
 
   height: 65px;
@@ -87,7 +94,7 @@ nav {
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid;
-}
+} */
 .form-div {
   padding-top: 50px;
   display: flex;
@@ -102,7 +109,7 @@ form {
   padding: 40px;
   font-size: 26px;
   width: 390px;
-
+  background-color: aliceblue;
   gap: 10px;
 }
 input {
@@ -125,12 +132,13 @@ textarea {
 a {
   text-align: center;
   text-decoration: none;
-  color: black;
+
+  color: white;
 }
 button {
   padding: 10px 25px;
-  background-color: #70e14e;
-  font-size: 16px;
+  background-color: #1b1bb6;
+  font-size: 18px;
   border: none;
   border-radius: 20px;
 }

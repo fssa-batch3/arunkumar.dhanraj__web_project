@@ -1,5 +1,17 @@
 body {
   font-family: "Alegreya", serif;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Take full size */
+  height: 100vh;
+  width: 100%;
+
+  /* Background */
+  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 142609-2.jpg")
+    center center / cover no-repeat;
 }
 main {
   display: flex;
@@ -13,6 +25,7 @@ section {
   width: fit-content;
   padding: 30px;
   border-radius: 5px;
+  background-color: aliceblue;
   /* display: flex;
   flex-direction: column;
   justify-content: center;
