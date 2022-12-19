@@ -127,6 +127,7 @@ main {
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 50px;
+  padding-bottom: 90px;
 }
 .requir-1 {
   display: flex;
@@ -172,4 +173,31 @@ main {
 .more-info p {
   margin-block-start: 0.1em;
   margin-block-end: 0.1em;
+}
+footer {
+  display: flex;
+  justify-content: space-evenly;
+
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
+footer p {
+  font-size: 18px;
+}
+.connect-images {
+  display: flex;
+  justify-content: space-between;
+}
+.links a {
+  text-decoration: none;
+  color: black;
+}
+.connect img {
+  width: 35px;
+}
+.link h1 {
+  text-align: start;
+}
+.links p:hover {
+  text-decoration: underline;
 }
