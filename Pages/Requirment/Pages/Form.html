@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="./Assests/Css/Form.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo-div">
+        <img class="logo-pic" src=".././../../Assests/Images/Ball-new.jpg" />
+        <p class="logo-name">Creckett</p>
+      </div>
+      <nav class="nav-links">
+        <!-- <a href="#home" class="nav-list">Home</a>
+          <a href="#features" class="nav-list">Features</a>
+          <a href="#about" class="nav-list">About</a> -->
+
+        <a href="#"><button class="login-btn">Log in</button> </a>
+      </nav>
+    </header>
+
+    <section id="sec-2">
+      <div class="form-div">
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="fname" name="name" placeholder="Arunkumar" />
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" placeholder="22" />
+          <label for="place">Place:</label>
+          <input
+            type="name"
+            id="place"
+            name="place"
+            placeholder="Guduvancherry"
+          />
+          <label for="mob-number">Mobile number:</label>
+          <input
+            type="text"
+            id="mob-number"
+            name="mob-number"
+            placeholder="+91"
+          />
+          <label for="name">Category:</label>
+          <select name="category" id="category">
+            <option value="All">All</option>
+            <option value="Bowler">Bowler</option>
+            <option value="Batter">Batter</option>
+            <option value="Wicket keeper">Wicket keeper</option>
+            <option value="All rounder">All rounder</option>
+          </select>
+          <label for="textarea">Looking for:</label>
+          <textarea
+            name="comment"
+            form="usrform"
+            placeholder="I am looking for team to join as a bowler..."
+          ></textarea>
+          <button><a href="../Requirment.html">Post now</a></button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

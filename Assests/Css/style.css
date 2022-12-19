@@ -262,17 +262,25 @@ nav {
 #about img {
   width: 60px;
 }
+
 /* #about div:hover {
   border: 3px solid orange;
   background-color: #2a850e;
   padding: 5px;
   cursor: pointer;
 } */
-
+.link h1 {
+  text-align: start;
+}
+.links p:hover {
+  text-decoration: underline;
+}
 footer {
   display: flex;
   justify-content: space-evenly;
-  background-color: #c2ebb6;
+
+  background-color: #85ffbd;
+  background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
 }
 footer p {
   font-size: 18px;
@@ -286,5 +294,5 @@ footer p {
   color: black;
 }
 .connect img {
-  width: 28px;
+  width: 35px;
 }

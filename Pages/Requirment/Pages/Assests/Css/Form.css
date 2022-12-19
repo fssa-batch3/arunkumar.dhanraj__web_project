@@ -1,0 +1,140 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Alegreya", serif;
+  background-image: linear-gradient(
+    129.1deg,
+    rgba(243, 199, 83, 1) 26.8%,
+    rgba(18, 235, 207, 1) 114.1%
+  );
+}
+header {
+  display: flex;
+
+  height: 65px;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: rgb(220 220 220) 0px 2px 8px;
+
+  position: sticky;
+  top: 0px;
+}
+.logo-div {
+  display: flex;
+
+  width: 180px;
+  height: 68px;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo-pic {
+  width: 40px;
+  border-radius: 50%;
+}
+.logo-name {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 29px;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  align-items: center;
+  width: 105px;
+  gap: 65px;
+}
+.nav-list {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
+.login-btn {
+  font-size: 20px;
+  font-weight: lighter;
+  transition: 0.5s;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+
+  color: black;
+  padding: 6px 15px;
+  background-color: #94ca65;
+  border: none;
+  border-radius: 8px;
+}
+.nav-links a {
+  color: #132a13;
+  transition: 0.3s;
+}
+.nav-list:active {
+  opacity: 0.3;
+}
+.login-btn:active {
+  opacity: 0.3;
+}
+.login-btn:hover {
+  cursor: pointer;
+  font-size: 25px;
+}
+.nav-list:hover {
+  color: #2a850e;
+  font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid;
+}
+.form-div {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 40px;
+  font-size: 26px;
+  width: 390px;
+
+  gap: 10px;
+}
+input {
+  width: 380px;
+  height: 30px;
+  border: 1.5px solid;
+  border-radius: 3px;
+}
+select {
+  padding: 6px 1px;
+  border: 1.5px solid;
+  border-radius: 3px;
+}
+textarea {
+  width: auto;
+  height: 100px;
+  border: 1.5px solid;
+  border-radius: 3px;
+}
+a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+button {
+  padding: 10px 25px;
+  background-color: #70e14e;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+}
+button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
