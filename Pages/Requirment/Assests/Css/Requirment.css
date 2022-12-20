@@ -106,7 +106,7 @@ main {
   background-color: #8aed6c;
 }
 .content button:hover {
-  background-color: antiquewhite;
+  background-color: rgb(238, 185, 101);
   cursor: pointer;
 }
 
