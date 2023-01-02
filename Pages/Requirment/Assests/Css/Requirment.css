@@ -44,7 +44,7 @@ nav {
   display: flex;
   align-items: center;
   width: 220px;
-  gap: 65px;
+  gap: 35px;
 }
 .nav-list {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -54,17 +54,40 @@ nav {
   color: black;
 }
 .login-btn {
-  font-size: 20px;
+  /* font-size: 20px;
   font-weight: lighter;
   transition: 0.5s;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+ 
 
   color: black;
   padding: 6px 15px;
   background-color: #94ca65;
   border: none;
-  border-radius: 8px;
+  border-radius: 8px; */
+  /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif; */
+  font-weight: bold;
+  padding: 1em 1.5em;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0px 8px 15px rgba(0.1, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.login-btn:hover {
+  /* cursor: pointer;
+  font-size: 25px; */
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }
 .nav-links a {
   color: #132a13;
@@ -76,10 +99,7 @@ nav {
 .login-btn:active {
   opacity: 0.3;
 }
-.login-btn:hover {
-  cursor: pointer;
-  font-size: 25px;
-}
+
 .nav-list:hover {
   color: #2a850e;
   font-size: 25px;
@@ -138,6 +158,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 450px;
+  flex-wrap: wrap;
 
   border: 1px solid;
   border-radius: 5px;
@@ -205,4 +226,68 @@ footer p {
 }
 .links p:hover {
   text-decoration: underline;
+}
+@media screen and (max-width: 480px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    box-shadow: rgb(220 220 220) 0px 2px 8px;
+  }
+  .logo-div {
+    display: flex;
+  }
+  nav {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    gap: 30px;
+
+    margin-top: -5px;
+    padding: 5px;
+    justify-content: center;
+  }
+  .nav-list:hover {
+    color: #2a850e;
+    font-size: 17px;
+  }
+  .nav-list {
+    font-size: 20px;
+  }
+  .login-btn {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+  #sec-1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+    gap: 40px;
+  }
+  #sec-3 {
+    padding: 0px 20px;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  footer div {
+    font-size: 15px;
+  }
+  .email {
+    font-size: 15px;
+  }
 }
