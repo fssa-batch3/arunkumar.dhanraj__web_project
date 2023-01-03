@@ -1,0 +1,3 @@
+// syntax
+
+var name = value;

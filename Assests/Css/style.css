@@ -9,6 +9,7 @@ body {
 
 header {
   display: flex;
+
   z-index: 2;
   height: 65px;
   justify-content: space-between;
@@ -44,6 +45,7 @@ header a {
 nav {
   display: flex;
   align-items: center;
+
   width: 514px;
   gap: 65px;
 }

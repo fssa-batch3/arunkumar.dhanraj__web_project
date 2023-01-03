@@ -317,6 +317,8 @@ footer p {
     text-align: center;
     margin-top: 50px;
     gap: 40px;
+    width: fit-content;
+    height: fit-content;
   }
   #sec-2 {
     margin-top: 200px;
