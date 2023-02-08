@@ -150,6 +150,7 @@
         </form>
       </div>
     </div>
+
     <script>
       let registerForm = document.getElementById("register");
       registerForm.addEventListener("submit", function (event) {
@@ -183,7 +184,7 @@
           jsonUser.push(userdata);
           window.localStorage.setItem("userDetails", JSON.stringify(jsonUser));
         }
-        window.location.href = "/Pages/Login/login.html";
+        window.location.href = "../Login/login.html";
       });
     </script>
   </body>

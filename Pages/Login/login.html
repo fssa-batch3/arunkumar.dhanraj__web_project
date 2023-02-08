@@ -151,6 +151,7 @@
               required
             />
           </div>
+
           <button class="btn" type="submit">Login</button>
         </form>
         <!-- <button class="btn" type="submit" onclick="check_user()"> -->
@@ -191,9 +192,10 @@
             isMatch = false;
           }
         }
+
         if (isMatch === true) {
           alert("Successfully logged in");
-          window.location.href = "/index.html";
+          window.location.href = "../../index.html";
         } else {
           alert("Username or Password incorrect");
         }
