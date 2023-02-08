@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <style>
+      :root {
+        --linear-gradient-1: linear-gradient(
+          to top left,
+          hsla(0, 72%, 51%, 0.4) 0%,
+          hsla(262, 83%, 58%, 0.4)
+        );
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        /* background-color: rgba(22, 204, 19, 0.163); */
+        background: var(--linear-gradient-1) #19d00fa2 no-repeat center/cover;
+      }
+      .card {
+        width: 350px;
+        /* border: 1px solid #ccc; */
+        border-radius: 4px;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 10px;
+        background-color: rgba(58, 158, 51, 0.596);
+      }
+
+      .card-header {
+        background-color: #333;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .card-header .text-header {
+        margin: 0;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+      }
+
+      .card-body {
+        padding: 16px;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+      }
+
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 1px;
+        padding-bottom: 5px;
+      }
+
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="password"] {
+        width: 92%;
+        padding: 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        margin-left: 13px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        background-color: #333;
+        color: #fff;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease-in-out;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #ccc;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <div class="text-header">Register</div>
+      </div>
+      <div class="card-body">
+        <form id="register">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              required=""
+              class="form-control"
+              name="username"
+              id="username"
+              type="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              required=""
+              class="form-control"
+              name="email"
+              id="email"
+              type="email"
+            />
+          </div>
+          <div class="form-group">
+            <label for="phonenumber">Phone Number:</label>
+            <input
+              required=""
+              class="form-control"
+              name="phonenumber"
+              id="phonenumber"
+              type="text"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              required=""
+              class="form-control"
+              name="password"
+              id="password"
+              type="password"
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              required=""
+              class="form-control"
+              name="confirm-password"
+              id="confirm-password"
+              type="password"
+            />
+          </div>
+          <button type="submit" class="btn">Sumbit</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      let registerForm = document.getElementById("register");
+      registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let user = [];
+        let userdata = {};
+        const username = document.getElementById("username").value;
+        const email = document.getElementById("email").value;
+        const phonenumber = document.getElementById("phonenumber").value;
+        const password = document.getElementById("password").value;
+        const confirm_password =
+          document.getElementById("confirm-password").value;
+        userdata["username"] = username;
+        userdata["email"] = email;
+        userdata["phonenumber"] = phonenumber;
+        userdata["password"] = password;
+        userdata["confirm-password"] = confirm_password;
+        // if (password === confirm_password) {
+        //   return true;
+        // } else {
+        //   return false;
+        // }
+        user.push(userdata);
+
+        if (window.localStorage.getItem("userDetails") === null) {
+          window.localStorage.setItem("userDetails", JSON.stringify(user));
+          console.log(window.localStorage.getItem("userDetails"));
+        } else {
+          let userLocal = window.localStorage.getItem("userDetails");
+          let jsonUser = JSON.parse(userLocal);
+          jsonUser.push(userdata);
+          window.localStorage.setItem("userDetails", JSON.stringify(jsonUser));
+        }
+        window.location.href = "/Pages/Login/login.html";
+      });
+    </script>
+  </body>
+</html>

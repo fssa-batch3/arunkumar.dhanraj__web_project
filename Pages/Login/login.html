@@ -27,10 +27,6 @@
         border-radius: 10px;
       }
 
-      .card:hover {
-        transition: 0.2s;
-        margin-top: -20px;
-      }
       /*Inputs*/
       .field {
         margin-top: 0.5rem;
@@ -83,8 +79,9 @@
       .btn-link {
         color: #f5f5f5;
         display: block;
-        font-size: 0.75em;
+        font-size: 0.9em;
         transition: color 0.3s ease-out;
+        padding: 10px;
       }
 
       a {
@@ -113,7 +110,7 @@
     <div class="whole-div">
       <div class="card">
         <h4 class="title">Log In!</h4>
-        <form>
+        <form id="login">
           <div class="field">
             <svg
               class="input-icon"
@@ -126,11 +123,12 @@
             </svg>
             <input
               autocomplete="off"
-              id="logemail"
+              id="email"
               placeholder="Email"
               class="input-field"
               name="logemail"
               type="email"
+              required
             />
           </div>
           <div class="field">
@@ -145,19 +143,105 @@
             </svg>
             <input
               autocomplete="off"
-              id="logpass"
+              id="password"
               placeholder="Password"
               class="input-field"
               name="logpass"
               type="password"
+              required
             />
           </div>
-          <button class="btn" type="submit">
-            <a href="./../../index.html">Login </a>
-          </button>
-          <a href="#" class="btn-link">Forgot your password?</a>
+          <button class="btn" type="submit">Login</button>
         </form>
+        <!-- <button class="btn" type="submit" onclick="check_user()"> -->
+        <!-- <a href="./../../index.html">Login </a> -->
+
+        <!-- <a href="#" class="btn-link">Forgot your password?</a> -->
+        <a href="./Register.html" class="btn-link"
+          >Don't have an account? Register now</a
+        >
       </div>
     </div>
+    <script>
+      let logIn = document.getElementById("login");
+      logIn.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let defaultData = JSON.parse(localStorage.getItem("userDetails"));
+        console.log(defaultData);
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        console.log(email, password);
+        //   [  {}, {}, {}, {}, {0}, {} ]
+        let isMatch = false;
+        for (let i = 0; i < defaultData.length; i++) {
+          let loggedUser = JSON.parse(
+            window.localStorage.getItem("userDetails")
+          );
+          console.log(loggedUser[i]);
+
+          window.localStorage.setItem("details", JSON.stringify(loggedUser[i]));
+
+          if (
+            email === defaultData[i].email &&
+            password == defaultData[i].password
+          ) {
+            isMatch = true;
+            break;
+          } else {
+            isMatch = false;
+          }
+        }
+        if (isMatch === true) {
+          alert("Successfully logged in");
+          window.location.href = "/index.html";
+        } else {
+          alert("Username or Password incorrect");
+        }
+      });
+      /* function submit() {
+         const logemail = document.getElementById("logemail").value;
+         const logpass = document.getElementById("logpass").value;
+
+         console.log(logemail);
+         console.log(logpass);
+
+         // For storing data in local
+         localStorage.setItem("email", logemail);
+         localStorage.setItem("password", logpass);
+
+         window.location.href = "../../index.html";
+       }
+       */
+
+      // function check_user() {
+      //   let login = document.getElementById("login");
+      //   let login_value = JSON.parse(
+      //     window.localStorage.getItem("userDetails")
+      //   );
+      //   console.log(login_value);
+      //   let email = document.getElementById("email").value;
+      //   let password = document.getElementById("password").value;
+      //   console.log(email, password);
+
+      //   let isthis = false;
+      //   for (let i = 0; i < login_value.length; i++) {
+      //     if (
+      //       email == login_value[i].email &&
+      //       password == login_value[i].password
+      //     ) {
+      //       isthis = true;
+      //       break;
+      //     } else {
+      //       isthis = false;
+      //     }
+      //   }
+      //   if ((isthis = true)) {
+      //     alert("Successfully logged in");
+      //     window.location.href = "/index.html";
+      //   } else {
+      //     alert("Username or Password incorrect");
+      //   }
+      // }
+    </script>
   </body>
 </html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --linear-gradient-1: linear-gradient(
+          to top left,
+          hsla(0, 72%, 51%, 0.4) 0%,
+          hsla(262, 83%, 58%, 0.4)
+        );
+      }
+
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        background: var(--linear-gradient-1) #19d00fa2 no-repeat center/cover;
+      }
+      .logo img {
+        margin: 2rem;
+      }
+      .background {
+        width: 430px;
+        height: 680px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+      form {
+        height: 700px;
+        width: 450px;
+        background-color: rgba(58, 158, 51, 0.596);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
+      }
+      form * {
+        font-family: "Poppins", sans-serif;
+        color: #020202;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+      }
+      form h3 {
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 0px;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-top: 23px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      input {
+        display: block;
+        height: 40px;
+        width: 100%;
+        background-color: rgba(242, 242, 242, 0.587);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      ::placeholder {
+        color: #e5e5e5;
+      }
+      button {
+        margin-top: 25px;
+        width: 50%;
+        background-color: #ffffff;
+        color: #0c0c0c;
+        padding: 5px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 8rem;
+      }
+      .color:hover {
+        background-color: #1845ad;
+        color: #eaf0fb !important;
+      }
+      button:hover {
+        background-color: #1845ad;
+      }
+      .social {
+        margin-top: 30px;
+        display: flex;
+      }
+      .social div {
+        background: red;
+        width: 150px;
+        border-radius: 3px;
+        padding: 5px 10px 10px 5px;
+        background-color: rgba(255, 255, 255, 0.27);
+        color: #eaf0fb;
+        text-align: center;
+        cursor: pointer;
+      }
+      .social div:hover {
+        background-color: rgba(255, 255, 255, 0.47);
+      }
+      .social .fb {
+        margin-left: 25px;
+      }
+      .social i {
+        margin-right: 4px;
+      }
+      a {
+        text-decoration: none;
+        color: #080710;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <form id="profile">
+        <h3>Profile</h3>
+        <label for="name">Name </label>
+        <input type="text" id="username" />
+        <label for="number">Phone Number</label>
+        <input type="text" id="phone" placeholder="+91 " />
+        <label for="mail">E-mail</label>
+        <input type="text" id="email" />
+        <label for="password">Old Password</label>
+        <input type="password" id="password" />
+        <label for="password">Reset Password</label>
+        <input type="password" />
+        <button class="color" type="submit">Save Changes</button>
+      </form>
+    </div>
+    <script>
+      const detailsUser = JSON.parse(window.localStorage.getItem("details"));
+      console.log(detailsUser);
+
+      const name = document.getElementById("username");
+      const email = document.getElementById("email");
+      const phonenumber = document.getElementById("phone");
+      const password = document.getElementById("password");
+
+      name.value = detailsUser["username"];
+      email.value = detailsUser["email"];
+      phonenumber.value = detailsUser["phonenumber"];
+      password.value = detailsUser["password"];
+    </script>
+  </body>
+</html>

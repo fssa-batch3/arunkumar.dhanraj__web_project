@@ -17,7 +17,7 @@ body {
   background: url("../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 142924.jpg")
     center center / cover no-repeat;
 }
-form {
+.form-div {
   display: flex;
   flex-direction: column;
   border-radius: 9px;

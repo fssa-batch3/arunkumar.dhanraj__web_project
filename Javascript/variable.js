@@ -1,3 +1,0 @@
-// syntax
-
-var name = value;

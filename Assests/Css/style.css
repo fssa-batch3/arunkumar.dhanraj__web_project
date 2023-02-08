@@ -67,11 +67,11 @@ nav {
   background-color: #94ca65;
   border: none;
   border-radius: 8px; */
-  /* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif; */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-weight: bold;
-  padding: 1em 2em;
-  font-size: 13px;
+  padding: 0.5em 1em;
+  font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -116,27 +116,23 @@ nav {
 }
 .background-video-container {
   position: relative;
-
-  z-index: -2;
 }
 .background-video-inner {
   width: 100%;
   height: 681px;
   overflow: hidden;
   position: relative;
-  z-index: -2;
 }
 .main-video {
   object-fit: cover;
   height: 100%;
   max-width: 100%;
   position: relative;
-  z-index: -2;
 }
 
 .overlay {
-  position: relative;
-  bottom: 500px;
+  position: absolute;
+  bottom: 200px;
   z-index: 0;
   color: #90a955;
   background-color: aliceblue;
@@ -269,10 +265,11 @@ button:hover .button-text {
 
 #features {
   width: 100%;
-  height: 700px;
+  height: fit-content;
   background-image: linear-gradient(to right, #00b09b, #96c93d);
   display: flex;
   flex-direction: column;
+  padding-bottom: 80px;
   gap: 60px;
 }
 
@@ -288,6 +285,7 @@ button:hover .button-text {
 .feat-container {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 .feat-container a {
@@ -379,13 +377,13 @@ button:hover .button-text {
   transform: translateY(0);
 }
 #about {
-  height: 500px;
-
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   gap: 30px;
-  padding: 0px 30px;
+  flex-wrap: wrap;
+  height: 100%;
+  padding: 100px 30px;
 }
 #about div {
   display: flex;
@@ -393,12 +391,16 @@ button:hover .button-text {
   align-items: center;
   flex: 1;
   text-align: center;
+  min-width: 300px;
 }
 #about div:hover {
   cursor: pointer;
   border-radius: 15px;
-  border-top: rgb(23, 224, 23) 3px solid;
-  border-bottom: rgb(23, 224, 23) 3px solid;
+  box-shadow: inset 0px 3px 0px 0px rgba(47, 255, 5, 1),
+    inset 0px -3px 0px 0px rgba(47, 255, 5, 1);
+
+  /* border-top: rgb(23, 224, 23) 3px solid;
+  border-bottom: rgb(23, 224, 23) 3px solid; */
 }
 #about h1 {
   font-size: 30px;
@@ -487,19 +489,21 @@ footer p {
     padding: 10px 18px;
     font-size: 15px;
   }
-  #home {
-    background-image: linear-gradient(
-      to right top,
-      #053718,
-      #176124,
-      #388e2a,
-      #62bc27,
-      #95eb12
-    );
-  }
+  /* #home {
+      background-image: linear-gradient(
+        to right top,
+        #053718,
+        #176124,
+        #388e2a,
+        #62bc27,
+        #95eb12
+      );
+    } */
+
   .overlay {
     width: 60%;
     height: 55%;
+    bottom: 100px;
   }
   #features {
     height: 1500px;

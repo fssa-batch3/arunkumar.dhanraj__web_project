@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <title>Host</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Alegreya", serif;
+        font-size: 20px;
+      }
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      form {
+        background-color: rgb(119, 170, 215);
+        padding: 50px 40px 30px 40px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-radius: 20px;
+      }
+      form div {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+      /* .label-profile {
+            margin-top: -6px;
+            margin-left: 55px;
+        } */
+
+      .submit-btn {
+        font-family: "Alegreya", serif;
+        width: fit-content;
+        padding: 5px 15px;
+        font-size: 20px;
+        border: 0px solid;
+        border-radius: 4px;
+        background-color: white;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form onsubmit="turfDetails()">
+        <div>
+          <label class="label-profile">Profile logo: </label>
+          <input type="text" class="file-choose" id="file" />
+        </div>
+        <div>
+          <label>Ground details:</label>
+          <textarea name="details" id="details" cols="20" rows="1"></textarea>
+        </div>
+        <div><button type="submit" class="submit-btn">Submit</button></div>
+      </form>
+    </section>
+    <script>
+      function turfDetails() {
+        const logo = document.getElementById("file").value;
+        const details = document.getElementById("details").value;
+        console.log(logo, details);
+      }
+    </script>
+  </body>
+</html>
