@@ -68,6 +68,13 @@
         font-size: 14px;
         border: 1px solid #ccc;
         border-radius: 4px;
+        outline: none;
+      }
+      .form-group input:valid {
+        border: 2px solid rgb(11, 193, 11);
+      }
+      .form-group input:invalid {
+        border: 2px solid red;
       }
 
       .btn {
@@ -104,6 +111,8 @@
               name="username"
               id="username"
               type="text"
+              pattern="[A-Za-z]{1,32}"
+              autocomplete="off"
             />
           </div>
           <div class="form-group">
@@ -114,6 +123,7 @@
               name="email"
               id="email"
               type="email"
+              autocomplete="off"
             />
           </div>
           <div class="form-group">
@@ -124,6 +134,7 @@
               name="phonenumber"
               id="phonenumber"
               type="text"
+              autocomplete="off"
             />
           </div>
           <div class="form-group">
@@ -157,12 +168,29 @@
         event.preventDefault();
         let user = [];
         let userdata = {};
-        const username = document.getElementById("username").value;
+        const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value;
         const phonenumber = document.getElementById("phonenumber").value;
         const password = document.getElementById("password").value;
         const confirm_password =
           document.getElementById("confirm-password").value;
+
+        if (username === "") {
+          alert("Name can't be blank");
+          return false;
+        } else if (password.length < 6) {
+          alert("Password is too weak");
+          return false;
+        }
+        if (password != confirm_password) {
+          alert("Confirm password is diffrent from password");
+          return false;
+        }
+        if (phonenumber.length < 10) {
+          alert("Phone number must contain 10 number");
+          return false;
+        }
+
         userdata["username"] = username;
         userdata["email"] = email;
         userdata["phonenumber"] = phonenumber;
