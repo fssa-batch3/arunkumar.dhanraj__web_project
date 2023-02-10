@@ -147,9 +147,9 @@
               class="form-control"
               name="password"
               id="password"
-              pattern="[a-z]{6,12}"
+              pattern="[A-Za-z]{6,20}"
               type="password"
-              title="Password must 6 letters"
+              title="Password must have 6 letters"
             />
           </div>
           <div class="form-group">
@@ -159,7 +159,7 @@
               class="form-control"
               name="confirm-password"
               id="confirm-password"
-              pattern="[a-z]{6,12}"
+              pattern="[A-Za-z]{6,20}"
               type="password"
               title="Password must 6 letters"
             />
@@ -208,33 +208,32 @@
 
         let match = false;
 
-        let exist = window.localStorage.getItem("userDetails");
+        let exist = localStorage.getItem("userDetails");
         let obj_arr = JSON.parse(exist);
-        for (let i = 0; i < obj_arr.length; i++) {
-          if (email === obj_arr[i].email) {
-            // alert("Email is already in use");
-            match = true;
-            break;
+
+        if (localStorage.getItem("userDetails") === null) {
+          localStorage.setItem("userDetails", JSON.stringify(user));
+          console.log(localStorage.getItem("userDetails"));
+          return true;
+        } else {
+          for (let i = 0; i < obj_arr.length; i++) {
+            if (email === obj_arr[i].email) {
+              // alert("Email is already in use");
+              match = true;
+              break;
+            }
           }
         }
 
         if (match === true) {
           alert("Email is already in use");
         } else {
-          if (window.localStorage.getItem("userDetails") === null) {
-            window.localStorage.setItem("userDetails", JSON.stringify(user));
-            console.log(window.localStorage.getItem("userDetails"));
-          } else {
-            let userLocal = window.localStorage.getItem("userDetails");
-            let jsonUser = JSON.parse(userLocal);
-            jsonUser.push(userdata);
-            window.localStorage.setItem(
-              "userDetails",
-              JSON.stringify(jsonUser)
-            );
-          }
+          let userLocal = localStorage.getItem("userDetails");
+          let jsonUser = JSON.parse(userLocal);
+          jsonUser.push(userdata);
+          localStorage.setItem("userDetails", JSON.stringify(jsonUser));
 
-          window.location.href = "../Login/login.html";
+          location.href = "../Login/login.html";
         }
       });
     </script>

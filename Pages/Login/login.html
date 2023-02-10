@@ -168,9 +168,7 @@
       let logIn = document.getElementById("login");
       logIn.addEventListener("submit", (event) => {
         event.preventDefault();
-        let defaultData = JSON.parse(
-          window.localStorage.getItem("userDetails")
-        );
+        let defaultData = JSON.parse(localStorage.getItem("userDetails"));
         console.log(defaultData);
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
@@ -178,12 +176,10 @@
         //   [  {}, {}, {}, {}, {0}, {} ]
         let isMatch = false;
         for (let i = 0; i < defaultData.length; i++) {
-          let loggedUser = JSON.parse(
-            window.localStorage.getItem("userDetails")
-          );
+          let loggedUser = JSON.parse(localStorage.getItem("userDetails"));
           console.log(loggedUser[i]);
 
-          window.localStorage.setItem("details", JSON.stringify(loggedUser[i]));
+          localStorage.setItem("details", JSON.stringify(loggedUser[i]));
 
           if (
             email === defaultData[i].email &&
@@ -198,7 +194,7 @@
 
         if (isMatch === true) {
           alert("Successfully logged in");
-          window.location.href = "./../../index.html";
+          location.href = "./../../index.html";
         } else {
           alert("Username or Password incorrect");
         }
