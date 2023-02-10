@@ -168,7 +168,9 @@
       let logIn = document.getElementById("login");
       logIn.addEventListener("submit", (event) => {
         event.preventDefault();
-        let defaultData = JSON.parse(localStorage.getItem("userDetails"));
+        let defaultData = JSON.parse(
+          window.localStorage.getItem("userDetails")
+        );
         console.log(defaultData);
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;

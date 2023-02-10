@@ -111,8 +111,9 @@
               name="username"
               id="username"
               type="text"
-              pattern="[A-Za-z]{1,32}"
+              pattern="[A-Za-z]{1,20}"
               autocomplete="off"
+              title="Name should be in letters"
             />
           </div>
           <div class="form-group">
@@ -134,7 +135,9 @@
               name="phonenumber"
               id="phonenumber"
               type="text"
+              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
               autocomplete="off"
+              title="Phone number should be in numbers"
             />
           </div>
           <div class="form-group">
@@ -144,7 +147,9 @@
               class="form-control"
               name="password"
               id="password"
+              pattern="[a-z]{6,12}"
               type="password"
+              title="Password must 6 letters"
             />
           </div>
           <div class="form-group">
@@ -154,7 +159,9 @@
               class="form-control"
               name="confirm-password"
               id="confirm-password"
+              pattern="[a-z]{6,12}"
               type="password"
+              title="Password must 6 letters"
             />
           </div>
           <button type="submit" class="btn">Sumbit</button>
@@ -175,44 +182,60 @@
         const confirm_password =
           document.getElementById("confirm-password").value;
 
-        if (username === "") {
-          alert("Name can't be blank");
-          return false;
-        } else if (password.length < 6) {
-          alert("Password is too weak");
-          return false;
-        }
-        if (password != confirm_password) {
-          alert("Confirm password is diffrent from password");
-          return false;
-        }
-        if (phonenumber.length < 10) {
-          alert("Phone number must contain 10 number");
-          return false;
-        }
+        // if (username === "") {
+        //   alert("Name can't be blank");
+        //   return false;
+        // } else if (password.length < 6) {
+        //   alert("Password is too weak");
+        //   return false;
+        // }
+        // if (password != confirm_password) {
+        //   alert("Confirm password is diffrent from password");
+        //   return false;
+        // }
+        // if (phonenumber.length < 10) {
+        //   alert("Phone number must contain 10 number");
+        //   return false;
+        // }
 
         userdata["username"] = username;
         userdata["email"] = email;
         userdata["phonenumber"] = phonenumber;
         userdata["password"] = password;
         userdata["confirm-password"] = confirm_password;
-        // if (password === confirm_password) {
-        //   return true;
-        // } else {
-        //   return false;
-        // }
+
         user.push(userdata);
 
-        if (window.localStorage.getItem("userDetails") === null) {
-          window.localStorage.setItem("userDetails", JSON.stringify(user));
-          console.log(window.localStorage.getItem("userDetails"));
-        } else {
-          let userLocal = window.localStorage.getItem("userDetails");
-          let jsonUser = JSON.parse(userLocal);
-          jsonUser.push(userdata);
-          window.localStorage.setItem("userDetails", JSON.stringify(jsonUser));
+        let match = false;
+
+        let exist = window.localStorage.getItem("userDetails");
+        let obj_arr = JSON.parse(exist);
+        for (let i = 0; i < obj_arr.length; i++) {
+          if (email === obj_arr[i].email) {
+            // alert("Email is already in use");
+            match = true;
+            break;
+          }
         }
-        window.location.href = "../Login/login.html";
+
+        if (match === true) {
+          alert("Email is already in use");
+        } else {
+          if (window.localStorage.getItem("userDetails") === null) {
+            window.localStorage.setItem("userDetails", JSON.stringify(user));
+            console.log(window.localStorage.getItem("userDetails"));
+          } else {
+            let userLocal = window.localStorage.getItem("userDetails");
+            let jsonUser = JSON.parse(userLocal);
+            jsonUser.push(userdata);
+            window.localStorage.setItem(
+              "userDetails",
+              JSON.stringify(jsonUser)
+            );
+          }
+
+          window.location.href = "../Login/login.html";
+        }
       });
     </script>
   </body>
