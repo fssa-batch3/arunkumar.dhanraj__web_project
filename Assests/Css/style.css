@@ -112,14 +112,14 @@ nav {
   border-bottom: 2px solid;
 }
 #home {
-  height: 681px;
+  height: 684px;
 }
 .background-video-container {
   position: relative;
 }
 .background-video-inner {
   width: 100%;
-  height: 681px;
+  height: 684px;
   overflow: hidden;
   position: relative;
 }
@@ -132,7 +132,7 @@ nav {
 
 .overlay {
   position: absolute;
-  bottom: 200px;
+  bottom: 22%;
   z-index: 0;
   color: #90a955;
   background-color: aliceblue;
