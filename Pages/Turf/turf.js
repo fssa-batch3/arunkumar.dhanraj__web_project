@@ -23,8 +23,7 @@ let turf_card = [
 ];
 // end of the JSON
 
-let n = 3;
-for (let i = 0; i <= n; i++) {
+for (let i = 0; i <= turf_card.length; i++) {
   // for append
   //<div class="turf-details-1"></div>
   let div_turf_details_1;
@@ -85,8 +84,3 @@ for (let i = 0; i <= n; i++) {
 
   document.querySelector("div.turf-list").append(div_turf_details_1);
 }
-
-// alert
-document.getElementById("btn").onclick = () => {
-  window.alert("This page is under construction");
-};
