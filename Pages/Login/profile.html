@@ -29,28 +29,25 @@
         box-sizing: border-box;
       }
       body {
-        height: 100vh;
+        /* height: 100vh; */
         background: var(--linear-gradient-1) #19d00fa2 no-repeat center/cover;
       }
       .logo img {
         margin: 2rem;
       }
-      .background {
-        width: 430px;
-        height: 680px;
+      /* .background {
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
         top: 50%;
-      }
+        
+      } */
       form {
-        height: 700px;
-        width: 450px;
         background-color: rgba(58, 158, 51, 0.596);
-        position: absolute;
+        /* position: absolute;
         transform: translate(-50%, -50%);
         top: 50%;
-        left: 50%;
+        left: 50%; */
         border-radius: 10px;
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.1);
@@ -65,7 +62,7 @@
         border: none;
       }
       form h3 {
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 400;
         line-height: 0px;
         text-align: center;
@@ -73,7 +70,7 @@
       label {
         display: block;
         margin-top: 23px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 500;
       }
       input {
@@ -90,51 +87,35 @@
       ::placeholder {
         color: #e5e5e5;
       }
-      button {
+      .buttons {
+        display: flex;
+        gap: 30px;
+      }
+      .save {
         margin-top: 25px;
-        width: 50%;
+        width: fit-content;
         background-color: #ffffff;
         color: #0c0c0c;
-        padding: 5px 0;
+        padding: 7px 10px;
         font-size: 18px;
         font-weight: 600;
         border-radius: 5px;
         cursor: pointer;
-        margin-left: 8rem;
       }
-      .color:hover {
-        background-color: #1845ad;
-        color: #eaf0fb !important;
-      }
-      button:hover {
-        background-color: #1845ad;
-      }
-      .social {
-        margin-top: 30px;
-        display: flex;
-      }
-      .social div {
-        background: red;
-        width: 150px;
-        border-radius: 3px;
-        padding: 5px 10px 10px 5px;
-        background-color: rgba(255, 255, 255, 0.27);
+      .save:hover {
+        background-color: #000901;
         color: #eaf0fb;
-        text-align: center;
+      }
+      .delete {
+        margin-top: 25px;
+        width: fit-content;
+        background-color: transparent;
+        color: black;
+        padding: 7px 10px;
+        font-size: 18px;
+        font-weight: 900;
+        border-radius: 5px;
         cursor: pointer;
-      }
-      .social div:hover {
-        background-color: rgba(255, 255, 255, 0.47);
-      }
-      .social .fb {
-        margin-left: 25px;
-      }
-      .social i {
-        margin-right: 4px;
-      }
-      a {
-        text-decoration: none;
-        color: #080710;
       }
     </style>
   </head>
@@ -142,32 +123,161 @@
     <div class="background">
       <form id="profile">
         <h3>Profile</h3>
-        <label for="name">Name </label>
-        <input type="text" id="username" />
-        <label for="number">Phone Number</label>
-        <input type="text" id="phone" />
-        <label for="mail">E-mail</label>
-        <input type="text" id="email" disabled />
-        <label for="password">Old Password</label>
-        <input type="password" id="password" />
-        <label for="password">Reset Password</label>
-        <input type="password" />
-        <button class="color" type="submit">Save Changes</button>
+        <div>
+          <label for="image">Profile image </label>
+          <input type="text" id="profileimage" />
+        </div>
+        <div>
+          <label for="firstname">First name </label>
+          <input type="text" id="firstname" />
+        </div>
+        <div>
+          <label for="lastname">Last name </label>
+          <input type="text" id="lastname" />
+        </div>
+        <div>
+          <label for="mail">E-mail</label> <input type="text" id="email" />
+        </div>
+        <div>
+          <label for="old-password">Old Password</label>
+          <input type="password" id="oldpassword" />
+        </div>
+        <div>
+          <label for="new-password">Reset Password</label>
+          <input type="password" id="resetpassword" />
+        </div>
+        <div>
+          <label for="dob">Date of birth </label> <input type="date" id="dob" />
+        </div>
+        <div>
+          <label for="number">Phone Number</label>
+          <input type="text" id="number" />
+        </div>
+        <div>
+          <label for="alternate-number">Alternate Number</label>
+          <input type="text" id="alternate" />
+        </div>
+        <div>
+          <label for="gender">Gender</label> <input type="text" id="gender" />
+        </div>
+        <div>
+          <label for="blood">Blood group</label>
+          <input type="text" id="blood" />
+        </div>
+        <div>
+          <label for="availability">Availability</label>
+          <input type="text" id="availability" />
+        </div>
+        <div>
+          <label for="record">Individual record</label>
+          <input type="text" id="record" />
+        </div>
+
+        <!-- <label for="disability">Disability</label>
+        <select name="disability" id="disability">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select> -->
+        <div>
+          <label for="skill">Skill level</label>
+          <input type="text" id="skill" />
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <input type="text" id="category" />
+        </div>
+        <div>
+          <label for="address1">Address lane-1</label>
+          <input type="text" id="address1" />
+        </div>
+        <div>
+          <label for="address1">Address lane-2</label>
+          <input type="text" id="address2" />
+        </div>
+
+        <div class="buttons">
+          <button class="save" type="submit">Save Changes</button
+          ><button class="delete" type="click">Delete</button>
+        </div>
       </form>
     </div>
     <script>
-      const detailsUser = JSON.parse(window.localStorage.getItem("details"));
-      console.log(detailsUser);
+      // task 1
+      // const detailsUser = JSON.parse(window.localStorage.getItem("details"));
+      // console.log(detailsUser);
 
-      const name = document.getElementById("username");
+      // const firstname = document.getElementById("firstname");
+      // const email = document.getElementById("email");
+      // const phonenumber = document.getElementById("number");
+
+      // firstname.value = detailsUser["username"];
+      // email.value = detailsUser["email"];
+      // phonenumber.value = detailsUser["phonenumber"];
+
+      // task 2
+
+      let logged_user = JSON.parse(localStorage.getItem("details"));
+      let signed_user = JSON.parse(localStorage.getItem("userDetails"));
+
+      let checklog_sign = signed_user.find(function (objectuser) {
+        let email_check = objectuser["email"];
+        if (logged_user === email_check) {
+          return true;
+        }
+      });
+
+      const firstname = document.getElementById("firstname");
       const email = document.getElementById("email");
-      const phonenumber = document.getElementById("phone");
-      const password = document.getElementById("password");
+      const phonenumber = document.getElementById("number");
 
-      name.value = detailsUser["username"];
-      email.value = detailsUser["email"];
-      phonenumber.value = detailsUser["phonenumber"];
-      password.value = detailsUser["password"];
+      firstname.value = checklog_sign["username"];
+      email.value = checklog_sign["email"];
+      phonenumber.value = checklog_sign["phonenumber"];
+
+      let profile_form = document.getElementById("profile");
+
+      const firstname_1 = document.getElementById("firstname");
+      const email_1 = document.getElementById("email");
+      const phonenumber_1 = document.getElementById("number");
+
+      const profile_image = document.getElementById("profileimage").value;
+      const last_name = document.getElementById("lastname").value;
+      const old_password = document.getElementById("oldpassword").value;
+      const reset_password = document.getElementById("resetpassword").value;
+      const dob = document.getElementById("dob").value;
+      const phone_number = document.getElementById("number").value;
+      const alternate_number = document.getElementById("alternate").value;
+      const gender = document.getElementById("gender").value;
+      const blood_group = document.getElementById("blood").value;
+      const availability = document.getElementById("availability").value;
+      const record = document.getElementById("skill").value;
+      const skill_level = document.getElementById("skill").value;
+      const category = document.getElementById("category").value;
+      const address1 = document.getElementById("address1").value;
+      const address2 = document.getElementById("address2").value;
+
+      let profile_object = {
+        firstname_1,
+        email_1,
+        phonenumber_1,
+        profile_image,
+        last_name,
+        old_password,
+        reset_password,
+        dob,
+        phone_number,
+        alternate_number,
+        gender,
+        blood_group,
+        availability,
+        record,
+        skill_level,
+        category,
+        address1,
+        address2,
+      };
+
+      let merge = Object.assign(checklog_sign, profile_object);
     </script>
   </body>
 </html>

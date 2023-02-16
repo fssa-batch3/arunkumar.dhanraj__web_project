@@ -179,7 +179,7 @@
           let loggedUser = JSON.parse(localStorage.getItem("userDetails"));
           console.log(loggedUser[i]);
 
-          localStorage.setItem("details", JSON.stringify(loggedUser[i]));
+          localStorage.setItem("details", JSON.stringify(loggedUser[i].email));
 
           if (
             email === defaultData[i].email &&
@@ -199,6 +199,7 @@
           alert("Username or Password incorrect");
         }
       });
+
       /* function submit() {
          const logemail = document.getElementById("logemail").value;
          const logpass = document.getElementById("logpass").value;
