@@ -67,6 +67,24 @@
         <div><button type="submit" class="submit-btn">Submit</button></div>
       </form>
     </section>
-    <script></script>
+    <script>
+      function turfDetails() {
+        let obj = {};
+        let logo = document.getElementById("file").value;
+        let text = document.getElementById("details").value;
+
+        obj["image"] = logo;
+        obj["text"] = text;
+
+        let card = [];
+
+        if (localStorage.getItem("turflist") !== null) {
+          card = JSON.parse(localStorage.getItem("turflist"));
+        }
+        card.push(obj);
+
+        localStorage.setItem("turflist", JSON.stringify(card));
+      }
+    </script>
   </body>
 </html>

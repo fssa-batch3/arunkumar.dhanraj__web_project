@@ -1,26 +1,31 @@
 // JSON for the product
 let turf_card = [
-  {
-    image: "./Assests/Images/Image/Screenshot 2022-12-18 204900.jpg",
-    text: "KK cricket ground,Knight riders club,Near Asthinapuram,Chrompet.",
-    alt: "KK cricket ground ",
-  },
-  {
-    image: "./Assests/Images/Image/Screenshot 2022-12-18 204835.jpg",
-    text: "Kalvoy cricket turf,KK riders club,Near Pandur,Kandigai.",
-    alt: "Kalvoy cricket turf ",
-  },
-  {
-    image: "./Assests/Images/Image/Screenshot 2022-12-18 204800.jpg",
-    text: "Kandigai cricket turf,Kalvoy knight riders,Near Guduvancherry,Potheri.",
-    alt: "Kandigai cricket turf ",
-  },
-  {
-    image: "./Assests/Images/Image/Screenshot 2022-12-18 204642.jpg",
-    text: "KKR cricket ground,Knight riders club,Near Kannivakkam,Kalvoy.",
-    alt: "KKR cricket ground ",
-  },
+  // {
+  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204900.jpg",
+  //   text: "KK cricket ground,Knight riders club,Near Asthinapuram,Chrompet.",
+  //   alt: "KK cricket ground ",
+  // },
+  // {
+  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204835.jpg",
+  //   text: "Kalvoy cricket turf,KK riders club,Near Pandur,Kandigai.",
+  //   alt: "Kalvoy cricket turf ",
+  // },
+  // {
+  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204800.jpg",
+  //   text: "Kandigai cricket turf,Kalvoy knight riders,Near Guduvancherry,Potheri.",
+  //   alt: "Kandigai cricket turf ",
+  // },
+  // {
+  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204642.jpg",
+  //   text: "KKR cricket ground,Knight riders club,Near Kannivakkam,Kalvoy.",
+  //   alt: "KKR cricket ground ",
+  // },
 ];
+let updates = JSON.parse(localStorage.getItem("turflist"));
+for (let j = 0; j < updates.length; j++) {
+  turf_card.push(updates[j]);
+}
+
 // end of the JSON
 
 for (let i = 0; i <= turf_card.length; i++) {
@@ -41,7 +46,7 @@ for (let i = 0; i <= turf_card.length; i++) {
   let img;
   img = document.createElement("img");
   img.setAttribute("src", turf_card[i]["image"]);
-  img.setAttribute("alt", turf_card[i]["alt"]);
+  // img.setAttribute("alt", turf_card[i]["alt"]);
   div_details_image.append(img);
 
   //append
