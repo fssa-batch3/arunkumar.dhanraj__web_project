@@ -51,6 +51,10 @@
         background-color: white;
         margin-top: 10px;
       }
+      .submit-btn:hover {
+        cursor: pointer;
+        background-color: grey;
+      }
     </style>
   </head>
   <body>
@@ -58,17 +62,26 @@
       <form onsubmit="turfDetails()">
         <div>
           <label class="label-profile">Profile logo: </label>
-          <input type="text" class="file-choose" id="file" />
+          <input type="text" class="file-choose" id="file" required />
         </div>
         <div>
           <label>Ground details:</label>
-          <textarea name="details" id="details" cols="20" rows="1"></textarea>
+          <textarea
+            name="details"
+            id="details"
+            cols="20"
+            rows="1"
+            required
+          ></textarea>
         </div>
-        <div><button type="submit" class="submit-btn">Submit</button></div>
+        <div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </div>
       </form>
     </section>
     <script>
       function turfDetails() {
+        event.preventDefault();
         let obj = {};
         let logo = document.getElementById("file").value;
         let text = document.getElementById("details").value;
@@ -84,7 +97,10 @@
         card.push(obj);
 
         localStorage.setItem("turflist", JSON.stringify(card));
+
+        window.location.href = "../Turf.html";
       }
     </script>
   </body>
 </html>
+<script></script>

@@ -144,7 +144,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  padding-bottom: 50px;
   border-radius: 6px;
   box-shadow: rgb(220 220 220) 3px 1px 3px 3px;
 }
@@ -182,6 +182,27 @@ select:hover {
   background-color: #94ca65;
 }
 .nearby button:hover {
+  cursor: pointer;
+  background-color: #2a850e;
+}
+.host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.host p {
+  font-size: 25px;
+}
+.host button {
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #94ca65;
+}
+.host button:hover {
   cursor: pointer;
   background-color: #2a850e;
 }
