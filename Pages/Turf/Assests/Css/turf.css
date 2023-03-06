@@ -244,6 +244,10 @@ select:hover {
 
 .details-book-btn {
   flex: 1.3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 .details-book-btn button {
   padding: 12px 29px;
@@ -254,6 +258,18 @@ select:hover {
 }
 .details-book-btn button:hover {
   opacity: 0.6;
+  cursor: pointer;
+}
+.icons-and-delete {
+  display: flex;
+  gap: 20px;
+}
+
+.icons-and-delete img {
+  width: 30px;
+}
+.icons-and-delete img:hover {
+  opacity: 0.5;
   cursor: pointer;
 }
 footer {

@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
       rel="stylesheet"
     />
-    <title>Host</title>
+    <title>Edit</title>
     <style>
       body {
         margin: 0px;
@@ -59,7 +59,7 @@
   </head>
   <body>
     <section>
-      <form onsubmit="turfDetails()">
+      <form onsubmit="edit()">
         <div>
           <label class="label-profile">Profile logo: </label>
           <input type="text" class="file-choose" id="file" required />
@@ -75,33 +75,10 @@
           ></textarea>
         </div>
         <div>
-          <button type="submit" class="submit-btn">Submit</button>
+          <button type="submit" class="submit-btn">Save</button>
         </div>
       </form>
     </section>
-    <script>
-      function turfDetails() {
-        event.preventDefault();
-        let obj = {};
-        let logo = document.getElementById("file").value;
-        let text = document.getElementById("details").value;
-        let turf_id = Date.now();
-
-        obj["image"] = logo;
-        obj["text"] = text;
-        obj["id"] = turf_id;
-
-        let card = [];
-
-        if (localStorage.getItem("turflist") !== null) {
-          card = JSON.parse(localStorage.getItem("turflist"));
-        }
-        card.push(obj);
-
-        localStorage.setItem("turflist", JSON.stringify(card));
-
-        window.location.href = "../Turf.html";
-      }
-    </script>
+    <script></script>
   </body>
 </html>

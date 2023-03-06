@@ -1,34 +1,13 @@
 // JSON for the product
-let turf_card = [
-  // {
-  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204900.jpg",
-  //   text: "KK cricket ground,Knight riders club,Near Asthinapuram,Chrompet.",
-  //   alt: "KK cricket ground ",
-  // },
-  // {
-  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204835.jpg",
-  //   text: "Kalvoy cricket turf,KK riders club,Near Pandur,Kandigai.",
-  //   alt: "Kalvoy cricket turf ",
-  // },
-  // {
-  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204800.jpg",
-  //   text: "Kandigai cricket turf,Kalvoy knight riders,Near Guduvancherry,Potheri.",
-  //   alt: "Kandigai cricket turf ",
-  // },
-  // {
-  //   image: "./Assests/Images/Image/Screenshot 2022-12-18 204642.jpg",
-  //   text: "KKR cricket ground,Knight riders club,Near Kannivakkam,Kalvoy.",
-  //   alt: "KKR cricket ground ",
-  // },
-];
-let updates = JSON.parse(localStorage.getItem("turflist"));
-for (let j = 0; j < updates.length; j++) {
-  turf_card.push(updates[j]);
-}
+//let turf_card = [];
 
+let turf_card = JSON.parse(localStorage.getItem("turflist"));
+//
 // end of the JSON
 
-for (let i = 0; i <= turf_card.length; i++) {
+// function for create
+//function create_card(turf_card) {
+for (let i = 0; i < turf_card.length; i++) {
   // for append
   //<div class="turf-details-1"></div>
   let div_turf_details_1;
@@ -61,6 +40,7 @@ for (let i = 0; i <= turf_card.length; i++) {
   //  <p> KK cricket ground,Knight riders club,Near Nellikuppam,Kandigai.</p>
   let p;
   p = document.createElement("p");
+  p.setAttribute("id", "para");
   p.innerText = turf_card[i]["text"];
   div_details_para.append(p);
 
@@ -87,5 +67,42 @@ for (let i = 0; i <= turf_card.length; i++) {
   a.append(button);
   //append book
 
+  // edit and delete div
+
+  // <div class="icons-and-delete"></div>
+  let editAndDelete_div;
+  editAndDelete_div = document.createElement("div");
+  editAndDelete_div.setAttribute("class", "icons-and-delete");
+  div_details_book_btn.append(editAndDelete_div);
+
+  // edit image
+  // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
+  let edit_img;
+  edit_img = document.createElement("img");
+  edit_img.setAttribute("src", "./Assests/Images/icon/pencil.svg");
+  edit_img.setAttribute("alt", "edit");
+  edit_img.setAttribute("id", turf_card[i]["id"]);
+  edit_img.setAttribute("onclick", "edit(this.id)");
+  editAndDelete_div.append(edit_img);
+
+  // delete image
+  // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
+  let delete_img;
+  delete_img = document.createElement("img");
+  delete_img.setAttribute("src", "./Assests/Images/icon/delete.svg");
+  editAndDelete_div.append(delete_img);
+
   document.querySelector("div.turf-list").append(div_turf_details_1);
 }
+let id = [];
+function edit(e) {
+  id.push(e);
+  console.log(e);
+  let uuid = localStorage.setItem("uuid", JSON.stringify(id));
+}
+
+//
+//create_card(turf_card);
+// create and list parts are done
+
+// update part

@@ -3,10 +3,15 @@ let requirment = [
     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
     para: "D Arunkumar is looking for a team join as a batter in guduvancherry",
   },
+  {
+    profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
+    para: "saran is looking for a team join as a batter in guduvancherry",
+  },
 ];
+// time ago
+let time = new Date();
+let ago = time.toDateString();
 
-// var today = format(Date.now() - 30 * 1000, "round-minute");
-// var dd = today.getTime();
 // main
 
 for (let i = 0; i < requirment.length; i++) {
@@ -47,7 +52,7 @@ for (let i = 0; i < requirment.length; i++) {
   // <p></p>
   let p_para;
   p_para = document.createElement("p");
-  p_para.innerText = timeAgo;
+  p_para.innerText = ago;
   div_para.append(p_para);
 
   //  profile-1
