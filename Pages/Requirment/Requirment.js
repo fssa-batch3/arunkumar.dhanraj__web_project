@@ -1,18 +1,22 @@
-let requirment = [
-  {
-    profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-    para: "D Arunkumar is looking for a team join as a batter in guduvancherry",
-  },
-  {
-    profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-    para: "saran is looking for a team join as a batter in guduvancherry",
-  },
-];
+// let requirment = [
+//   {
+//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
+//     para: "D Arunkumar is looking for a team join as a batter in guduvancherry",
+//   },
+//   {
+//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
+//     para: "saran is looking for a team join as a batter in guduvancherry",
+//   },
+// ];
+
 // time ago
 let time = new Date();
 let ago = time.toDateString();
 
 // main
+// local storage
+
+let requirment = JSON.parse(localStorage.getItem("req_list"));
 
 for (let i = 0; i < requirment.length; i++) {
   //  <div class="requir-1"></div>
@@ -46,7 +50,7 @@ for (let i = 0; i < requirment.length; i++) {
   //  <span></span>
   let span_para;
   span_para = document.createElement("span");
-  span_para.innerText = requirment[i].para;
+  span_para.innerText = requirment[i].message;
   div_para.append(span_para);
 
   // <p></p>

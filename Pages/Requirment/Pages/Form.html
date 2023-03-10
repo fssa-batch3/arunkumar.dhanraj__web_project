@@ -30,7 +30,7 @@
 
     <section id="sec-2">
       <div class="form-div">
-        <form>
+        <form onsubmit="req()">
           <label for="name">Name:</label>
           <input type="text" id="fname" name="name" placeholder="Arunkumar" />
           <label for="age">Age:</label>
@@ -58,14 +58,34 @@
             <option value="All rounder">All rounder</option>
           </select>
           <label for="textarea">Looking for:</label>
-          <textarea
-            name="comment"
-            form="usrform"
-            placeholder="I am looking for team to join as a bowler..."
-          ></textarea>
-          <button><a href="../Requirment.html">Post now</a></button>
+          <textarea name="comment" form="usrform" id="text">
+looking for a</textarea
+          >
+          <button type="submit"><a>Post now</a></button>
         </form>
       </div>
     </section>
+    <script>
+      function req() {
+        event.preventDefault();
+        let name = document.getElementById("fname").value;
+        let message = document.getElementById("text").value;
+
+        let obj = {};
+
+        obj["name"] = name;
+        obj["message"] = `${name} is ${message}`;
+
+        let req_arr = [];
+
+        if (localStorage.getItem("req_list") != null) {
+          req_arr = JSON.parse(localStorage.getItem("req_list"));
+        }
+        req_arr.push(obj);
+
+        localStorage.setItem("req_list", JSON.stringify(req_arr));
+        window.location.href = "../Requirment.html";
+      }
+    </script>
   </body>
 </html>
