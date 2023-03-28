@@ -94,11 +94,14 @@ for (let i = 0; i < turf_card.length; i++) {
 
   document.querySelector("div.turf-list").append(div_turf_details_1);
 }
+
+// turf card's uuid to edit button
 let id = [];
 function edit(e) {
   id.push(e);
   console.log(e);
-  let uuid = localStorage.setItem("uuid", JSON.stringify(id));
+  localStorage.setItem("turf_uuid", JSON.stringify(id));
+  location.href = "./Pages/edit.html";
 }
 
 //

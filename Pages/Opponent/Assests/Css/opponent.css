@@ -161,10 +161,7 @@ nav {
   flex-direction: column;
   align-items: center;
 }
-.container-1,
-.container-2,
-.container-3,
-.container-4 {
+.container {
   margin: 25px;
   border-radius: 4px;
   border: #132a13 1px solid;
@@ -213,7 +210,7 @@ nav {
 .place-date-container {
   display: flex;
   justify-content: space-between;
-  padding: 0px 12px;
+  padding: 12px 12px;
 }
 .place-date-div {
   display: flex;
