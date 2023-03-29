@@ -125,5 +125,63 @@ for (let i = 0; i < requirment.length; i++) {
   p_share_2.innerText = "Contact";
   div_info_2.append(p_share_2);
 
+  // <div class="edit-delete-btn"></div>
+  let edit_delete;
+  edit_delete = document.createElement("div");
+  edit_delete.setAttribute("class", "edit-delete-btn");
+  div_requir_1.prepend(edit_delete);
+
+  // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
+  let edit;
+  edit = document.createElement("img");
+  edit.setAttribute("src", "./Assests/Images/icon/pencil.svg");
+  edit.setAttribute("alt", "edit");
+  edit.setAttribute("id", requirment[i]["id"]);
+  edit.setAttribute("onclick", "edit(this.id)");
+  edit_delete.append(edit);
+
+  // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
+  let del;
+  del = document.createElement("img");
+  del.setAttribute("src", "./Assests/Images/icon/delete.svg");
+  del.setAttribute("alt", "delete");
+  del.setAttribute("id", requirment[i]["id"]);
+  del.setAttribute("onclick", "del(this.id)");
+  edit_delete.append(del);
+
   document.querySelector(".main-container").append(div_requir_1);
+}
+// edit btn id
+
+let uuid = [];
+function edit(id) {
+  uuid.push(id);
+
+  localStorage.setItem("req_edit_uuid", JSON.stringify(uuid));
+  location.href = "./Pages/edit.html";
+}
+
+let id = [];
+function del(e) {
+  id.push(e);
+
+  localStorage.setItem("req_delete_uuid", JSON.stringify(id));
+
+  let req_list = JSON.parse(localStorage.getItem("req_list"));
+
+  let req_uuid = JSON.parse(localStorage.getItem("req_delete_uuid"));
+
+  let req_card = req_list.find(function (obj) {
+    let check = obj["id"];
+    if (check == req_uuid) {
+      return true;
+    }
+  });
+
+  let del = req_list.indexOf(req_card);
+
+  req_list.splice(del, 1);
+
+  localStorage.setItem("req_list", JSON.stringify(req_list));
+  location.reload();
 }

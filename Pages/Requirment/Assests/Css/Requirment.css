@@ -162,14 +162,29 @@ nav {
   flex-direction: column;
   width: 450px;
   flex-wrap: wrap;
-
+  position: relative;
   border: 1px solid;
   border-radius: 5px;
   padding: 30px 30px 13px 30px;
 }
+.edit-delete-btn {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  display: flex;
+  gap: 10px;
+}
+.edit-delete-btn img {
+  width: 26px;
+}
+.edit-delete-btn img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 .profile-details {
   display: flex;
   gap: 20px;
+  padding-top: 15px;
 }
 
 .profile {

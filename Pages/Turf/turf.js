@@ -90,6 +90,8 @@ for (let i = 0; i < turf_card.length; i++) {
   let delete_img;
   delete_img = document.createElement("img");
   delete_img.setAttribute("src", "./Assests/Images/icon/delete.svg");
+  delete_img.setAttribute("id", turf_card[i]["id"]);
+  delete_img.setAttribute("onclick", "del(this.id)");
   editAndDelete_div.append(delete_img);
 
   document.querySelector("div.turf-list").append(div_turf_details_1);
@@ -104,8 +106,32 @@ function edit(e) {
   location.href = "./Pages/edit.html";
 }
 
-//
-//create_card(turf_card);
-// create and list parts are done
+// turf card's uuid to delete button
+let uuid = [];
+function del(id) {
+  uuid.push(id);
+  console.log(id);
+  localStorage.setItem("turf_delete_uuid", JSON.stringify(uuid));
 
-// update part
+  let turf_list = JSON.parse(localStorage.getItem("turflist"));
+  console.log(turf_list);
+
+  let turf_uuid = JSON.parse(localStorage.getItem("turf_delete_uuid"));
+  console.log(turf_uuid);
+  let turfcard = turf_list.find(function (obj) {
+    let check_id = obj["id"];
+    if (check_id == turf_uuid) {
+      return true;
+    }
+  });
+  console.log(turfcard);
+
+  let det = turf_list.indexOf(turfcard);
+  console.log(det);
+
+  turf_list.splice(det, 1);
+  localStorage.setItem("turflist", JSON.stringify(turf_list));
+  location.reload();
+}
+
+// delete

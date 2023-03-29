@@ -71,11 +71,22 @@ looking for a</textarea
         event.preventDefault();
         let name = document.getElementById("fname").value;
         let message = document.getElementById("text").value;
+        let age = document.getElementById("age").value;
+        let place = document.getElementById("place").value;
+        let number = document.getElementById("mob-number").value;
+        // let category = document.getElementsById("category").value;
+        let req_id = Date.now();
 
         let obj = {};
 
         obj["name"] = name;
         obj["message"] = `${name} is ${message}`;
+        obj["age"] = age;
+        obj["place"] = place;
+        obj["number"] = number;
+        // obj["category"] = category;
+
+        obj["id"] = req_id;
 
         let req_arr = [];
 

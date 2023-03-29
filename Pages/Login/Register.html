@@ -147,7 +147,7 @@
               class="form-control"
               name="password"
               id="password"
-              pattern="[A-Za-z]{6,20}"
+              pattern="[A-Za-z0-9]{6,20}"
               type="password"
               title="Password must have 6 letters"
             />
@@ -159,7 +159,7 @@
               class="form-control"
               name="confirm-password"
               id="confirm-password"
-              pattern="[A-Za-z]{6,20}"
+              pattern="[A-Za-z0-9]{6,20}"
               type="password"
               title="Password must 6 letters"
             />
@@ -204,39 +204,65 @@
         userdata["password"] = password;
         userdata["confirm-password"] = confirm_password;
 
+        if (localStorage.getItem("userDetails") != null) {
+          user = JSON.parse(localStorage.getItem("userDetails"));
+        }
         user.push(userdata);
+        localStorage.setItem("userDetails", JSON.stringify(user));
 
-        let match = false;
+        // let match = false;
+        // let obj_arr = JSON.parse(localStorage.getItem("userDetails"));
+        // for (let i = 0; i < obj_arr.length; i++) {
+        //   if (email == obj_arr[i].email) {
+        //     // alert("Email is already in use");
+        //     match = true;
+        //     break;
+        //   }
+        // }
+        // if (match === true) {
+        //   alert("Email is already in use");
+        // }else{
 
-        let exist = localStorage.getItem("userDetails");
-        let obj_arr = JSON.parse(exist);
+        // }
+        // localStorage.setItem("userDetails", JSON.stringify(user));
+        // else {
+        //   let userLocal = localStorage.getItem("userDetails");
+        //   let jsonUser = JSON.parse(userLocal);
+        //   jsonUser.push(userdata);
+        //   localStorage.setItem("userDetails", JSON.stringify(jsonUser));
 
-        if (localStorage.getItem("userDetails") === null) {
-          localStorage.setItem("userDetails", JSON.stringify(user));
-          console.log(localStorage.getItem("userDetails"));
-          return true;
-        } else {
-          for (let i = 0; i < obj_arr.length; i++) {
-            if (email === obj_arr[i].email) {
-              // alert("Email is already in use");
-              match = true;
-              break;
-            }
-          }
-        }
+        //   location.href = "../Login/login.html";
+        // }
 
-        if (match === true) {
-          alert("Email is already in use");
-        } else {
-          let userLocal = localStorage.getItem("userDetails");
-          let jsonUser = JSON.parse(userLocal);
-          jsonUser.push(userdata);
-          localStorage.setItem("userDetails", JSON.stringify(jsonUser));
+        location.href = "../Login/login.html";
+        // let exist = localStorage.getItem("userDetails");
+        // let obj_arr = JSON.parse(exist);
 
-          location.href = "../Login/login.html";
-        }
+        // if (localStorage.getItem("userDetails") === null) {
+        //   localStorage.setItem("userDetails", JSON.stringify(user));
+        //   console.log(localStorage.getItem("userDetails"));
+        //   return true;
+        // } else {
+        //   for (let i = 0; i < obj_arr.length; i++) {
+        //     if (email === obj_arr[i].email) {
+        //       // alert("Email is already in use");
+        //       match = true;
+        //       break;
+        //     }
+        //   }
+        // }
+
+        // if (match === true) {
+        //   alert("Email is already in use");
+        // } else {
+        //   let userLocal = localStorage.getItem("userDetails");
+        //   let jsonUser = JSON.parse(userLocal);
+        //   jsonUser.push(userdata);
+        //   localStorage.setItem("userDetails", JSON.stringify(jsonUser));
+
+        //   location.href = "../Login/login.html";
+        // }
       });
-      2;
     </script>
   </body>
 </html>
