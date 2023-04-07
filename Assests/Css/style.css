@@ -502,9 +502,10 @@ footer p {
     } */
 
   .overlay {
-    width: 60%;
+/*     width: 60%;
     height: 55%;
-    bottom: 100px;
+    bottom: 100px; */
+    display:none;
   }
   #features {
     height: 1500px;
