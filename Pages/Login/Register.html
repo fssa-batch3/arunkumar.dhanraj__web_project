@@ -135,7 +135,7 @@
               name="phonenumber"
               id="phonenumber"
               type="text"
-              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+              pattern="[0-9]{5}[0-9]{5}"
               autocomplete="off"
               title="Phone number should be in numbers"
             />
@@ -203,6 +203,9 @@
         userdata["phonenumber"] = phonenumber;
         userdata["password"] = password;
         userdata["confirm-password"] = confirm_password;
+        userdata[
+          "profile"
+        ] = `https://ui-avatars.com/api/?name=${username}&rounded=true&uppercase=false&background=random`;
 
         if (localStorage.getItem("userDetails") != null) {
           user = JSON.parse(localStorage.getItem("userDetails"));

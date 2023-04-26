@@ -45,9 +45,24 @@
         <a href="#features" class="nav-list">Features</a>
         <a href="#about" class="nav-list">About</a>
 
-        <a href="./Pages/Login/login.html">
-          <button class="login-btn">Log in</button></a
-        >
+        <div class="register">
+          <a href="./Pages/Login/login.html">
+            <button class="login-btn">Log in</button></a
+          >
+          <a href="./Pages/Login/Register.html">
+            <button class="login-btn">Sign up</button></a
+          >
+        </div>
+        <img
+          class="profile"
+          src="./Assests/Images/icon/custom.png"
+          alt="profile"
+          onclick="dropdown()"
+        />
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" onclick="logout()">Log out</a>
+          <a href="#">Profile</a>
+        </div>
       </nav>
     </header>
     <section id="home" class="sec-1">
@@ -172,5 +187,39 @@
         </div>
       </div>
     </footer>
+    <script>
+      //  for profile image
+      let loguser = JSON.parse(localStorage.getItem("details"));
+
+      let register_div = document.querySelector(".register");
+      let profile = document.querySelector(".profile");
+
+      if (loguser != null) {
+        register_div.style.display = "none";
+        profile.style.display = "block";
+      }
+
+      // dropdown
+
+      function dropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function (e) {
+        if (!e.target.matches(".profile")) {
+          let myDropdown = document.getElementById("myDropdown");
+          if (myDropdown.classList.contains("show")) {
+            myDropdown.classList.remove("show");
+          }
+        }
+      };
+
+      // Log out
+
+      function logout() {
+        localStorage.removeItem("details");
+        location.reload();
+      }
+    </script>
   </body>
 </html>

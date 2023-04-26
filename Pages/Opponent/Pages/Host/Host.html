@@ -14,29 +14,44 @@
   <body>
     <main>
       <section>
-        <form>
+        <form id="form">
           <div class="form-div">
-            <label for="type">Game type</label>
-            <select name="gametype" id="gametype">
+            <label for="type">Game type:</label>
+            <select name="gametype" id="gametype" class="select">
               <option value="None">None</option>
-              <option value="10over">10 Overs</option>
-              <option value="12over">12 Overs</option>
-              <option value="16over">16 Overs</option>
-              <option value="20over">20 Overs</option>
+              <option value="10 Overs">10 Overs</option>
+              <option value="12 Overs">12 Overs</option>
+              <option value="16 Overs">16 Overs</option>
+              <option value="20 Overs">20 Overs</option>
             </select>
           </div>
 
           <div class="form-div">
-            <label for="date">Pick a date</label>
-            <input type="date" id="day" name="day" />
+            <label for="text">Team name:</label>
+            <input type="text" id="name" name="name" />
           </div>
 
           <div class="form-div">
-            <label for="time">Pick a time</label>
+            <label for="text">Team logo:</label>
+            <input type="text" id="logo" name="logo" />
+          </div>
+
+          <div class="form-div">
+            <label for="date">Pick a date:</label>
+            <input type="date" id="date" name="date" />
+          </div>
+
+          <div class="form-div">
+            <label for="time">Pick a time:</label>
             <input type="time" id="time" name="time" />
           </div>
 
           <div class="form-div">
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" />
+          </div>
+
+          <!-- <div class="form-div">
             <textarea
               name="ground"
               id="ground"
@@ -51,11 +66,48 @@
           <p>
             <a href="../../../Turf/Turf.html"> <button>Book venue</button></a>
           </p>
-        </div>
-        <div class="host-btn">
-          <a href="../../Opponent.html"><button>Host now</button></a>
-        </div>
+        </div> -->
+          <div class="host-btn">
+            <button type="submit">Host now</button>
+            <!-- <a href="../../Opponent.html"> -->
+          </div>
+        </form>
       </section>
     </main>
+    <script>
+      let opponent = document.getElementById("form");
+      opponent.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let game_type = document.getElementById("gametype").value;
+        let team_name = document.getElementById("name").value;
+        let team_logo = document.getElementById("logo").value;
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let place = document.getElementById("place").value;
+        let login_email = JSON.parse(localStorage.getItem("details"));
+        let uuid = Date.now();
+
+        let arr = [];
+
+        let obj = {
+          game_type,
+          team_name,
+          team_logo,
+          date,
+          time,
+          uuid,
+          place,
+          login_email,
+        };
+        if (localStorage.getItem("opponent_list") != null) {
+          arr = JSON.parse(localStorage.getItem("opponent_list"));
+        }
+
+        arr.push(obj);
+        console.log(arr);
+        localStorage.setItem("opponent_list", JSON.stringify(arr));
+        location.href = "../../Opponent.html";
+      });
+    </script>
   </body>
 </html>

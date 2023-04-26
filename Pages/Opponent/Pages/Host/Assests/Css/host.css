@@ -6,12 +6,13 @@ body {
   justify-content: center;
 
   /* Take full size */
-  height: 100vh;
-  width: 100%;
+  height: 95.5vh;
+  width: 99%;
 
+  background-color: rgb(200, 222, 222);
   /* Background */
-  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 142609-2.jpg")
-    center center / cover no-repeat;
+  /* background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 142609-2.jpg")
+    center center / cover no-repeat; */
 }
 main {
   display: flex;

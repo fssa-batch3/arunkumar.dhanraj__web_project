@@ -16,6 +16,8 @@ header {
 
   position: sticky;
   top: 0px;
+
+  z-index: 10;
 }
 header a {
   text-decoration: none;
@@ -104,6 +106,20 @@ nav {
   align-items: center;
   border-bottom: 2px solid;
 }
+.edit-delete-btn {
+  position: absolute;
+  right: 4px;
+  top: 6px;
+  display: flex;
+  gap: 10px;
+}
+.edit-delete-btn img {
+  width: 26px;
+}
+.edit-delete-btn img:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 #sec-1 {
   display: flex;
   justify-content: space-around;
@@ -169,7 +185,12 @@ nav {
   flex-direction: column;
   gap: 15px;
   width: 700px;
+  position: relative;
 }
+#container {
+  padding-top: 23px;
+}
+
 .opponent-logo {
   display: flex;
   justify-content: space-evenly;
@@ -177,6 +198,7 @@ nav {
   border-bottom: 1px solid;
   margin-left: 12px;
   margin-right: 12px;
+  position: relative;
 }
 .opponent-logo h1 {
   font-size: 25px;
@@ -191,6 +213,11 @@ nav {
   text-align: center;
   opacity: 0.7;
 }
+#adduser-p {
+  position: absolute;
+  right: 120px;
+  bottom: 0px;
+}
 .add-user-div {
   display: flex;
   justify-content: center;
@@ -199,6 +226,9 @@ nav {
   height: 150px;
   border-radius: 50%;
   border: 2px solid #2a850e;
+}
+#add-user-div {
+  margin-top: -62px;
 }
 .oppo-logo {
   width: 150px;

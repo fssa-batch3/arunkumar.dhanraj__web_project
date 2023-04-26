@@ -17,7 +17,7 @@ let ago = time.toDateString();
 // local storage
 
 let requirment = JSON.parse(localStorage.getItem("req_list"));
-
+let logged = JSON.parse(localStorage.getItem("details"));
 for (let i = 0; i < requirment.length; i++) {
   //  <div class="requir-1"></div>
   let div_requir_1;
@@ -125,30 +125,31 @@ for (let i = 0; i < requirment.length; i++) {
   p_share_2.innerText = "Contact";
   div_info_2.append(p_share_2);
 
-  // <div class="edit-delete-btn"></div>
-  let edit_delete;
-  edit_delete = document.createElement("div");
-  edit_delete.setAttribute("class", "edit-delete-btn");
-  div_requir_1.prepend(edit_delete);
+  if (requirment[i]["login_email"] == logged) {
+    // <div class="edit-delete-btn"></div>
+    let edit_delete;
+    edit_delete = document.createElement("div");
+    edit_delete.setAttribute("class", "edit-delete-btn");
+    div_requir_1.prepend(edit_delete);
 
-  // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
-  let edit;
-  edit = document.createElement("img");
-  edit.setAttribute("src", "./Assests/Images/icon/pencil.svg");
-  edit.setAttribute("alt", "edit");
-  edit.setAttribute("id", requirment[i]["id"]);
-  edit.setAttribute("onclick", "edit(this.id)");
-  edit_delete.append(edit);
+    // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
+    let edit;
+    edit = document.createElement("img");
+    edit.setAttribute("src", "./Assests/Images/icon/pencil.svg");
+    edit.setAttribute("alt", "edit");
+    edit.setAttribute("id", requirment[i]["id"]);
+    edit.setAttribute("onclick", "edit(this.id)");
+    edit_delete.append(edit);
 
-  // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
-  let del;
-  del = document.createElement("img");
-  del.setAttribute("src", "./Assests/Images/icon/delete.svg");
-  del.setAttribute("alt", "delete");
-  del.setAttribute("id", requirment[i]["id"]);
-  del.setAttribute("onclick", "del(this.id)");
-  edit_delete.append(del);
-
+    // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
+    let del;
+    del = document.createElement("img");
+    del.setAttribute("src", "./Assests/Images/icon/delete.svg");
+    del.setAttribute("alt", "delete");
+    del.setAttribute("id", requirment[i]["id"]);
+    del.setAttribute("onclick", "del(this.id)");
+    edit_delete.append(del);
+  }
   document.querySelector(".main-container").append(div_requir_1);
 }
 // edit btn id

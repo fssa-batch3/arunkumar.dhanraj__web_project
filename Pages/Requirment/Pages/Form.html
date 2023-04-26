@@ -74,6 +74,7 @@ looking for a</textarea
         let age = document.getElementById("age").value;
         let place = document.getElementById("place").value;
         let number = document.getElementById("mob-number").value;
+        let login_email = JSON.parse(localStorage.getItem("details"));
         // let category = document.getElementsById("category").value;
         let req_id = Date.now();
 
@@ -84,6 +85,7 @@ looking for a</textarea
         obj["age"] = age;
         obj["place"] = place;
         obj["number"] = number;
+        obj["login_email"] = login_email;
         // obj["category"] = category;
 
         obj["id"] = req_id;
