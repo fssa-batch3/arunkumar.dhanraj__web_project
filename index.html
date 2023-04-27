@@ -30,8 +30,8 @@
   </head>
   <body>
     <header>
-      <a href="./index.html">
-        <div class="logo-div">
+      <a href="#">
+        <div class="logo-div" onclick="index()">
           <img
             class="logo-pic"
             src="./Assests/Images/Ball-new.jpg"
@@ -46,11 +46,11 @@
         <a href="#about" class="nav-list">About</a>
 
         <div class="register">
-          <a href="./Pages/Login/login.html">
-            <button class="login-btn">Log in</button></a
+          <a href="#">
+            <button class="login-btn" onclick="log_in()">Log in</button></a
           >
-          <a href="./Pages/Login/Register.html">
-            <button class="login-btn">Sign up</button></a
+          <a href="#">
+            <button class="login-btn" onclick="sign_up()">Sign up</button></a
           >
         </div>
         <img
@@ -187,39 +187,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      //  for profile image
-      let loguser = JSON.parse(localStorage.getItem("details"));
-
-      let register_div = document.querySelector(".register");
-      let profile = document.querySelector(".profile");
-
-      if (loguser != null) {
-        register_div.style.display = "none";
-        profile.style.display = "block";
-      }
-
-      // dropdown
-
-      function dropdown() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-
-      window.onclick = function (e) {
-        if (!e.target.matches(".profile")) {
-          let myDropdown = document.getElementById("myDropdown");
-          if (myDropdown.classList.contains("show")) {
-            myDropdown.classList.remove("show");
-          }
-        }
-      };
-
-      // Log out
-
-      function logout() {
-        localStorage.removeItem("details");
-        location.reload();
-      }
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>

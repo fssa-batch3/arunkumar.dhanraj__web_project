@@ -1,6 +1,15 @@
 let oppo = JSON.parse(localStorage.getItem("opponent_list"));
-
 let logged = JSON.parse(localStorage.getItem("details"));
+
+// host match only if logged in
+
+function host_oppo() {
+  if (logged != null) {
+    location.href = "./Pages/Host/Host.html";
+  } else {
+    alert("If you want to host a match, You have to login");
+  }
+}
 
 for (let i = 0; i < oppo.length; i++) {
   // <div class="container" >

@@ -13,24 +13,45 @@
       href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../../Assests/Css/style.css" />
 
     <title>Turf</title>
   </head>
   <body>
     <header>
-      <a href="../../index.html">
-        <div class="logo-div">
-          <img class="logo-pic" src="./Assests/Images/Image/Ball-new.jpg" />
+      <a href="#">
+        <div class="logo-div" onclick="index()">
+          <img
+            class="logo-pic"
+            src="./Assests/Images/Image/Ball-new.jpg"
+            alt="Ball"
+          />
           <p class="logo-name">Creckett</p>
-        </div></a
-      >
-
+        </div>
+      </a>
       <nav class="nav-links">
-        <a href="../../index.html" class="nav-list">Home</a>
-        <!-- <a href="#features" class="nav-list">Features</a>
-        <a href="#about" class="nav-list">About</a> -->
+        <a href="#home" class="nav-list">Home</a>
+        <a href="#features" class="nav-list">Features</a>
+        <a href="#about" class="nav-list">About</a>
 
-        <a href="#"><button class="login-btn">Log in</button></a>
+        <div class="register">
+          <a href="#">
+            <button class="login-btn" onclick="log_in()">Log in</button></a
+          >
+          <a href="#">
+            <button class="login-btn" onclick="sign_up()">Sign up</button></a
+          >
+        </div>
+        <img
+          class="profile"
+          src="../../Assests/Images/icon/custom.png"
+          alt="profile"
+          onclick="dropdown()"
+        />
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" onclick="logout()">Log out</a>
+          <a href="#">Profile</a>
+        </div>
       </nav>
     </header>
     <main>
@@ -69,7 +90,7 @@
           </div>
           <div class="host">
             <p>If you have a turf, You can host here</p>
-            <a href="./Pages/Host turf.html"><button>Host a turf</button></a>
+            <a href="#"><button onclick="host_turf()">Host a turf</button></a>
           </div>
         </div>
         <!-- 1st part done -->
@@ -208,6 +229,7 @@
         </div>
       </div>
     </footer>
+    <script src="../../script.js"></script>
     <script src="./turf.js"></script>
   </body>
 </html>

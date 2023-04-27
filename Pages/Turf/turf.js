@@ -1,8 +1,18 @@
+let turf_card = JSON.parse(localStorage.getItem("turflist"));
+let logged = JSON.parse(localStorage.getItem("details"));
+// Host turf only if logged in
+
+function host_turf() {
+  if (logged != null) {
+    location.href = "./Pages/Host turf.html";
+  } else {
+    alert("If you want to host turf,You have to login");
+  }
+}
+
 // JSON for the product
 //let turf_card = [];
 
-let turf_card = JSON.parse(localStorage.getItem("turflist"));
-let logged = JSON.parse(localStorage.getItem("details"));
 //
 // end of the JSON
 

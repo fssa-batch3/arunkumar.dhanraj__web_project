@@ -18,25 +18,45 @@
       rel="stylesheet"
       type="text/css"
     />
+    <link rel="stylesheet" href="../../Assests/Css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.css">
     <title>Opponent</title>
   </head>
   <body>
     <header>
-      <a href="../../index.html">
-      <div class="logo-div">
-        <img class="logo-pic" src="./Assests/Images/Image/Ball-new.jpg  " />
-        <p class="logo-name">Creckett</p>
-      </div>
-    </a>
+      <a href="#">
+        <div class="logo-div" onclick="index()">
+          <img
+            class="logo-pic"
+            src="./Assests/Images/Image/Ball-new.jpg"
+            alt="Ball"
+          />
+          <p class="logo-name">Creckett</p>
+        </div>
+      </a>
       <nav class="nav-links">
-        <a href="../../index.html" class="nav-list">Home</a>
-        <!-- <a href="#features" class="nav-list">Features</a>
-        <a href="#about" class="nav-list">About</a> -->
+        <a href="#home" class="nav-list">Home</a>
+        <a href="#features" class="nav-list">Features</a>
+        <a href="#about" class="nav-list">About</a>
 
-        <a href="./Pages/Login/login.html">
-          <button class="login-btn">Log in</button></a
-        >
+        <div class="register">
+          <a href="#">
+            <button class="login-btn" onclick="log_in()">Log in</button></a
+          >
+          <a href="#">
+            <button class="login-btn" onclick="sign_up()">Sign up</button></a
+          >
+        </div>
+        <img
+          class="profile"
+          src="../../Assests/Images/icon/custom.png"
+          alt="profile"
+          onclick="dropdown()"
+        />
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" onclick="logout()">Log out</a>
+          <a href="#">Profile</a>
+        </div>
       </nav>
     </header>
     <main>
@@ -61,7 +81,7 @@
             If you can't find matches nearby.<br />You can host one.Try hosting
             a match?
           </p>
-         <a href="./Pages/Host/Host.html"><button>Host a match</button></a> 
+         <a href="#"><button onclick="host_oppo()">Host a match</button></a> 
         </div>
 
         <!-- Already hosted -->
@@ -229,6 +249,7 @@
     </div>
   </div>
 </footer>
+<script src="../../script.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.js"></script>
 <script src="./Opponent.js"></script>
   </body>

@@ -9,6 +9,17 @@
 //   },
 // ];
 
+let requirment = JSON.parse(localStorage.getItem("req_list"));
+let logged = JSON.parse(localStorage.getItem("details"));
+
+// host turf only if logged in
+function host_req() {
+  if (logged != null) {
+    location.href = "./Pages/Form.html";
+  } else {
+    alert("If you want post your requirments, You have to log in");
+  }
+}
 // time ago
 let time = new Date();
 let ago = time.toDateString();
@@ -16,8 +27,6 @@ let ago = time.toDateString();
 // main
 // local storage
 
-let requirment = JSON.parse(localStorage.getItem("req_list"));
-let logged = JSON.parse(localStorage.getItem("details"));
 for (let i = 0; i < requirment.length; i++) {
   //  <div class="requir-1"></div>
   let div_requir_1;
@@ -34,7 +43,7 @@ for (let i = 0; i < requirment.length; i++) {
   //  <img class="profile" src="./Assests/Images/Image/logo/cricketer (1).png">
   let img_profile;
   img_profile = document.createElement("img");
-  img_profile.setAttribute("class", "profile");
+  img_profile.setAttribute("class", "profile_logo");
   img_profile.setAttribute(
     "src",
     "./Assests/Images/Image/logo/cricketer (1).png"
