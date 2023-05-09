@@ -53,15 +53,10 @@
             <button class="login-btn" onclick="sign_up()">Sign up</button></a
           >
         </div>
-        <img
-          class="profile"
-          src="./Assests/Images/icon/custom.png"
-          alt="profile"
-          onclick="dropdown()"
-        />
+        <img class="profile" alt="profile" onclick="dropdown()" />
         <div class="dropdown-content" id="myDropdown">
           <a href="#" onclick="logout()">Log out</a>
-          <a href="#">Profile</a>
+          <a href="#" onclick="user()">Profile</a>
         </div>
       </nav>
     </header>
@@ -95,7 +90,7 @@
         We are commited to bringing you what you want!
       </div>
       <div class="feat-container">
-        <div class="container-turf">
+        <div class="container-turf" onclick="turf_container()">
           Turf
           <img src="./Assests/Images/turf.jpg" alt="Turf" />
 
@@ -103,7 +98,7 @@
             <button><span>Book now</span></button></a
           >
         </div>
-        <div class="container-opponents">
+        <div class="container-opponents" onclick="opponent_container()">
           Opponent
           <img
             src="./Assests/Images/boys of cricket.jpg"
@@ -114,7 +109,7 @@
             <button><span>Book now</span></button>
           </a>
         </div>
-        <div class="container-requirements">
+        <div class="container-requirements" onclick="requirement_container()">
           Requirment
           <img
             src="./Assests/Images/account-multiple-plus.svg"

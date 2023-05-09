@@ -232,12 +232,14 @@ looking for a</textarea
       const age = document.getElementById("age");
       const place = document.getElementById("place");
       const number = document.getElementById("mob-number");
+      const type = document.getElementById("category");
 
       name.value = req_card["name"];
       req_msg.value = req_card["message"];
       age.value = req_card["age"];
       place.value = req_card["place"];
       number.value = req_card["number"];
+      type.value = req_card["category"];
 
       function save() {
         const name = document.getElementById("fname").value;
@@ -245,8 +247,9 @@ looking for a</textarea
         const age = document.getElementById("age").value;
         const place = document.getElementById("place").value;
         const number = document.getElementById("mob-number").value;
+        const category = document.getElementById("category").value;
 
-        let req_obj = { name, message, age, place, number };
+        let req_obj = { name, message, age, place, number, category };
         console.log(req_obj);
         let update = Object.assign(req_card, req_obj);
         console.log(update);

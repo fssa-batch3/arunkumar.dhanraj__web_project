@@ -42,6 +42,10 @@
   gap: 50px;
   padding-bottom: 90px;
 }
+h2 {
+  opacity: 0.5;
+  display: none;
+}
 .requir-1 {
   display: flex;
   flex-direction: column;

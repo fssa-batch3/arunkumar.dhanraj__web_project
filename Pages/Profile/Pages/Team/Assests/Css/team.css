@@ -6,10 +6,12 @@ body {
   justify-content: center;
 
   /* Take full size */
-  height: 96vh;
-  width: 97%;
+  height: 97vh;
+  width: 98%;
 
-  background-color: rgb(168, 161, 161);
+  /* Background */
+  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 141929.jpg")
+    center center / cover no-repeat;
 }
 .team-logo-div {
   display: flex;
@@ -28,11 +30,11 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-#logo {
-  width: 140px;
-  height: 140px;
-  margin-left: 6px;
-  border-radius: 50%;
+.team-logo img {
+  width: 35px;
+  position: absolute;
+  left: 659px;
+  top: 182px;
 }
 #img {
   cursor: pointer;
@@ -50,16 +52,24 @@ form {
   gap: 10px;
   border: 1px solid;
   font-size: 25px;
+  outline: none;
   width: 400px;
   height: 600px;
   padding: 30px;
   border-radius: 9px;
   background-color: aliceblue;
 }
+textarea {
+  outline: none;
+}
 input,
 select {
   padding: 10px;
   border-radius: 5px;
+  outline: none;
+}
+option {
+  font-size: 17px;
 }
 
 .btn {
@@ -68,9 +78,10 @@ select {
   margin-top: 20px;
 }
 button {
-  font-size: 17px;
-  font-weight: 500;
   padding: 10px 50px;
+  font-family: "Alegreya", serif;
+  font-size: 20px;
+  font-weight: 500;
   border: none;
   border-radius: 6px;
   background-color: rgb(139, 233, 139);

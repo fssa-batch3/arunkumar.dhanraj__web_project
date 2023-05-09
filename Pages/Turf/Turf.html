@@ -30,9 +30,9 @@
         </div>
       </a>
       <nav class="nav-links">
-        <a href="#home" class="nav-list">Home</a>
-        <a href="#features" class="nav-list">Features</a>
-        <a href="#about" class="nav-list">About</a>
+        <a href="#" class="nav-list" onclick="home()">Home</a>
+        <a href="#" class="nav-list" onclick="features()">Features</a>
+        <a href="#" class="nav-list" onclick="about()">About</a>
 
         <div class="register">
           <a href="#">
@@ -50,7 +50,7 @@
         />
         <div class="dropdown-content" id="myDropdown">
           <a href="#" onclick="logout()">Log out</a>
-          <a href="#">Profile</a>
+          <a href="#" onclick="user()">Profile</a>
         </div>
       </nav>
     </header>
@@ -64,7 +64,7 @@
         </div>
         <div class="content-image">
           <img
-            src="./Assests/Images/Image/cricket-player-holding-leather-ball.jpg "
+            src="./Assests/Images/Image/undraw_current_location_re_j130.svg"
           />
         </div>
       </section>
@@ -80,7 +80,7 @@
                 <option value="Tambaram">Tambaram</option>
                 <option value="Kalvoy">Kalvoy</option>
                 <option value="Kandigai">Kandigai</option>
-                <option value="Perungudi">Perungkudi</option>
+                <option value="Perungudi">Perungudi</option>
                 <option value="Chengalpattu">Chengalpattu</option>
                 <option value="Vandalur">Vandalur</option>
                 <option value="Asthinapuram">Asthinapuram</option>
@@ -88,10 +88,10 @@
             </form>
             <button>Search</button>
           </div>
-          <div class="host">
-            <p>If you have a turf, You can host here</p>
-            <a href="#"><button onclick="host_turf()">Host a turf</button></a>
-          </div>
+        </div>
+        <div class="host">
+          <p>If you have a turf, You can host here</p>
+          <a href="#"><button onclick="host_turf()">Host a turf</button></a>
         </div>
         <!-- 1st part done -->
 
@@ -214,6 +214,7 @@
         <p>Phone: +91 6385102549</p>
         <p>Email: arunkumar.dhanraj@fssa.freshworks.com</p>
       </div>
+
       <div class="connect">
         <h1>Connect Us</h1>
         <div class="connect-images">
@@ -230,6 +231,7 @@
       </div>
     </footer>
     <script src="../../script.js"></script>
+
     <script src="./turf.js"></script>
   </body>
 </html>

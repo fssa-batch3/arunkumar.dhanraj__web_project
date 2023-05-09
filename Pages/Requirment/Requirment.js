@@ -1,14 +1,3 @@
-// let requirment = [
-//   {
-//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-//     para: "D Arunkumar is looking for a team join as a batter in guduvancherry",
-//   },
-//   {
-//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-//     para: "saran is looking for a team join as a batter in guduvancherry",
-//   },
-// ];
-
 let requirment = JSON.parse(localStorage.getItem("req_list"));
 let logged = JSON.parse(localStorage.getItem("details"));
 
@@ -19,6 +8,11 @@ function host_req() {
   } else {
     alert("If you want post your requirments, You have to log in");
   }
+}
+
+// if requirements are null, have to show there are no req
+if (requirment == null) {
+  document.getElementById("h2").style.display = "block";
 }
 // time ago
 let time = new Date();
@@ -81,12 +75,20 @@ for (let i = 0; i < requirment.length; i++) {
   div_info.setAttribute("class", "info");
   div_more_info.append(div_info);
 
+  let a_href;
+  a_href = document.createElement("a");
+  a_href.setAttribute(
+    "href",
+    "./Pages/profile/Req_profile.html?req_id=" + requirment[i]["login_email"]
+  );
+  div_info.append(a_href);
+
   //<img src="./Assests/Images/Image/boy.png" alt="Profile" />
   let img_share;
   img_share = document.createElement("img");
   img_share.setAttribute("src", "./Assests/Images/Image/boy.png");
   img_share.setAttribute("alt", "Profile");
-  div_info.append(img_share);
+  a_href.append(img_share);
 
   //<p>Profile</p>
   let p_share;
@@ -190,8 +192,11 @@ function del(e) {
 
   let del = req_list.indexOf(req_card);
 
-  req_list.splice(del, 1);
+  let responce = confirm("Do you want to delete this?");
 
-  localStorage.setItem("req_list", JSON.stringify(req_list));
-  location.reload();
+  if (responce) {
+    req_list.splice(del, 1);
+    localStorage.setItem("req_list", JSON.stringify(req_list));
+    location.reload();
+  }
 }

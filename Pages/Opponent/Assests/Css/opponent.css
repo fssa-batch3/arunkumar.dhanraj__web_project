@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 .edit-delete-btn {
   position: absolute;
   right: 4px;
@@ -107,7 +110,7 @@
 }
 #adduser-p {
   position: absolute;
-  right: 120px;
+  /* right: 120px; */
   bottom: 0px;
 }
 .add-user-div {
@@ -121,9 +124,17 @@
 }
 #add-user-div {
   margin-top: -62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #2a850e;
 }
 .oppo-logo {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
 }
 .add-user {

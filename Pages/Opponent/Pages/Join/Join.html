@@ -20,21 +20,14 @@
       <input type="file" name="filetoupload" id="filetoupload" /> -->
         <div class="team-logo-div">
           <div class="team-logo">
-            <input
-              type="file"
-              name="uploadfile"
-              id="img"
-              style="display: none"
-            />
-            <label for="img" id="img">Team Logo</label>
-            <img src="./Assests/Images/camera.png" />
+            <img id="logo" alt="Team logo" />
           </div>
         </div>
 
-        <label for="name">Team name</label>
+        <label for="name">Team name :</label>
         <input type="name" id="name" />
 
-        <label for="skill">Skill Level</label>
+        <label for="skill">Skill Level :</label>
 
         <select name="skill" id="skill">
           <option value="none">None</option>
@@ -43,21 +36,81 @@
           <option value="Advanced">Advanced</option>
           <option value="Professional">Professional</option>
         </select>
-        <label for="strength"> Team strength </label>
+
+        <label for="strength"> Team strength :</label>
         <input type="text" id="strength" name="strength" />
 
-        <label for="message">Message</label>
+        <label for="message">Message :</label>
         <textarea
           name="message"
-          id="#message"
+          id="message"
           cols="6"
           rows="7"
           placeholder="Eg:Let's fix the match"
         ></textarea>
         <div class="btn">
-          <button><a href="../../Opponent.html">SEND REQUEST</a></button>
+          <button id="join"><a href="#">Join now</a></button>
         </div>
       </form>
     </div>
+    <script>
+      // Now logged user
+      let log_user = JSON.parse(localStorage.getItem("details"));
+
+      // Total team list
+      let total_team = JSON.parse(localStorage.getItem("team"));
+
+      // Logged user's team
+      let user_team = total_team.find((team) => log_user == team["login_user"]);
+      console.log(user_team);
+
+      // Putting the user's team details into the input's value
+      let name = document.getElementById("name");
+      let logo = document.getElementById("logo");
+      let skill = document.getElementById("skill");
+      let strength = document.getElementById("strength");
+      let message = document.getElementById("message");
+
+      name.value = user_team["team_name"];
+      logo.setAttribute("src", user_team["team_logo"]);
+      skill.value = user_team["skill_level"];
+      strength.value = user_team["team_strength"];
+
+      // Join now button function for user joining the match
+      let join = document.getElementById("join");
+
+      // Hosted opponent id
+      let hosted_oppo_id = JSON.parse(localStorage.getItem("oppo_join_uuid"));
+
+      join.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        let team_name = document.getElementById("name").value;
+        let team_logo = document.getElementById("logo").getAttribute("src");
+        let team_skill = document.getElementById("skill").value;
+        let team_strength = document.getElementById("strength").value;
+        let team_message = document.getElementById("message").value;
+
+        let arr = [];
+
+        let obj = {
+          team_name,
+          team_logo,
+          team_skill,
+          team_strength,
+          team_message,
+          hosted_oppo_id,
+          log_user,
+        };
+
+        if (localStorage.getItem("joined_opponent_list") != null) {
+          arr = JSON.parse(localStorage.getItem("joined_opponent_list"));
+        }
+        arr.push(obj);
+
+        localStorage.setItem("joined_opponent_list", JSON.stringify(arr));
+        window.location.href = "../../Opponent.html";
+      });
+    </script>
   </body>
 </html>

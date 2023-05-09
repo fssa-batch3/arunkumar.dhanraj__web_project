@@ -61,7 +61,9 @@
     <script>
       let oppo_list = JSON.parse(localStorage.getItem("opponent_list"));
 
-      let oppo_uuid = JSON.parse(localStorage.getItem("opponent_edit_uuid"));
+      const product_id = window.location.search;
+      const product_params = new URLSearchParams(product_id);
+      const oppo_uuid = product_params.get("edit_id");
 
       let oppo_card = oppo_list.find(function (obj) {
         let check = obj["uuid"];

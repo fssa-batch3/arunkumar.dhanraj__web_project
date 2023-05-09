@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="form-div">
-      <form>
+      <form id="form">
         <div class="date">
           <label for="date">Select a date:</label>
           <input type="date" id="date" />
@@ -25,22 +25,15 @@
               <label for="time">From:</label>
               <input type="time" id="from-time" />
               <label for="time" id="time">To:</label>
-              <input type="time" id="to-time" value="08:30" />
+              <input type="time" id="to-time" />
             </div>
-            <div class="amt">$5.3 USD only</div>
+            <!-- <div class="amt">$5.3 USD only</d  iv> -->
           </div>
         </div>
       </form>
-      <button><a href="../Turf.html"> Book now</a></button>
+      <button id="book" type="submit">Book now</button>
     </div>
-    <script>
-      const date = document.getElementById("date").value;
-      const fromTime = document.getElementById("from-time").value;
-      const toTime = document.getElementById("to-time").value;
 
-      console.log(date);
-      console.log(fromTime);
-      console.log(toTime);
-    </script>
+    <script src="./Book_turf.js"></script>
   </body>
 </html>

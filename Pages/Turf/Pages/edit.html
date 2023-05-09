@@ -65,7 +65,7 @@
           <input type="text" class="file-choose" id="file" required />
         </div>
         <div>
-          <label>Ground details:</label>
+          <label for="ground">Ground details: </label>
           <textarea
             name="details"
             id="details"
@@ -88,7 +88,7 @@
 
       console.log(turf_uuid);
       let turfcard = turf_list.find(function (obj) {
-        let check_id = obj["id"];
+        let check_id = obj["turf_id"];
         if (check_id == turf_uuid) {
           return true;
         }

@@ -2,7 +2,6 @@ let oppo = JSON.parse(localStorage.getItem("opponent_list"));
 let logged = JSON.parse(localStorage.getItem("details"));
 
 // host match only if logged in
-
 function host_oppo() {
   if (logged != null) {
     location.href = "./Pages/Host/Host.html";
@@ -45,7 +44,8 @@ for (let i = 0; i < oppo.length; i++) {
 
   // <div class="add-user-div">
   let div_adduser = document.createElement("div");
-  div_adduser.setAttribute("class", "add-user-div");
+  div_adduser.setAttribute("class", oppo[i]["uuid"]);
+  // div_adduser.setAttribute("class", "add-user-div");
   div_adduser.setAttribute("id", "add-user-div");
   div_opponent_logo.append(div_adduser);
 
@@ -60,7 +60,7 @@ for (let i = 0; i < oppo.length; i++) {
   p_adduser.setAttribute("class", "adduser-p");
   p_adduser.setAttribute("id", "adduser-p");
   p_adduser.innerText = "Waiting!";
-  div_opponent_logo.append(p_adduser);
+  div_adduser.append(p_adduser);
 
   //  <div class="place-date-container">
   let div_place_date_container = document.createElement("div");
@@ -96,6 +96,8 @@ for (let i = 0; i < oppo.length; i++) {
   div_place_date_container.append(div_join);
 
   let button = document.createElement("button");
+  button.setAttribute("id", oppo[i]["uuid"]);
+  button.setAttribute("onclick", "join_btn(this.id)");
   button.innerText = "Join";
   div_join.append(button);
 
@@ -105,66 +107,151 @@ for (let i = 0; i < oppo.length; i++) {
     edit_delete.setAttribute("class", "edit-delete-btn");
     div_container.prepend(edit_delete);
 
+    let a_edit = document.createElement("a");
+    a_edit.setAttribute(
+      "href",
+      "./Pages/Host/edit.html?edit_id=" + oppo[i]["uuid"]
+    );
+    edit_delete.append(a_edit);
+
     // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
     let edit = document.createElement("img");
     edit.setAttribute("src", "../Requirment/Assests/Images/icon/pencil.svg");
     edit.setAttribute("alt", "edit");
-    edit.setAttribute("id", oppo[i]["uuid"]);
-    edit.setAttribute("onclick", "edit(this.id)");
-    edit_delete.append(edit);
+    edit.setAttribute("id", "edit");
+    // edit.setAttribute("class", oppo[i]["uuid"]);
+    // edit.setAttribute("onclick", "edit()");
+    a_edit.append(edit);
+
+    let a_delete = document.createElement("a");
+    a_delete.setAttribute(
+      "href",
+      "./Pages/Host/delete.html?delete_id=" + oppo[i]["uuid"]
+    );
+    edit_delete.append(a_delete);
 
     // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
     let del;
     del = document.createElement("img");
     del.setAttribute("src", "../Requirment/Assests/Images/icon/delete.svg");
     del.setAttribute("alt", "delete");
-    del.setAttribute("id", oppo[i]["uuid"]);
-    del.setAttribute("onclick", "del(this.id)");
-    edit_delete.append(del);
+    // del.setAttribute("id", oppo[i]["uuid"]);
+    // del.setAttribute("onclick", "del(this.id)");
+    a_delete.append(del);
   }
   document.getElementById("main-container").append(div_container);
 }
 
-// opponent_card' uuid to edit button
-let edit_id = [];
-function edit(uuid) {
-  edit_id.push(uuid);
+// opponent_card's uuid to edit button
+// let edit_id = [];
+// function edit() {
+//   const uuid = document.getElementById("edit").getAttribute("class");
+//   edit_id.push(uuid);
+//   console.log(edit_id);
 
-  localStorage.setItem("opponent_edit_uuid", JSON.stringify(edit_id));
-  location.href = "./Pages/Host/edit.html";
-}
+//   localStorage.setItem("opponent_edit_uuid", JSON.stringify(edit_id));
+//   location.href = "./Pages/Host/edit.html";
+// }
 
 // opponent_card' uuid to delete button
-let del_id = [];
-console.log(del_id);
-function del(uuid) {
-  del_id.push(uuid);
+// let del_id = [];
+// console.log(del_id);
+// function del(uuid) {
+//   del_id.push(uuid);
 
-  localStorage.setItem("opponent_delete_uuid", JSON.stringify(del_id));
+//   localStorage.setItem("opponent_delete_uuid", JSON.stringify(del_id));
 
-  let oppo_list = JSON.parse(localStorage.getItem("opponent_list"));
-  console.log(oppo_list);
-  let oppo_uuid = JSON.parse(localStorage.getItem("opponent_delete_uuid"));
-  console.log(uuid);
-  let oppo_card = oppo_list.find(function (obj) {
-    let check = obj["uuid"];
-    if (check == oppo_uuid) {
-      return true;
-    }
-  });
+//   let oppo_list = JSON.parse(localStorage.getItem("opponent_list"));
+//   console.log(oppo_list);
+//   let oppo_uuid = JSON.parse(localStorage.getItem("opponent_delete_uuid"));
+//   console.log(uuid);
+//   let oppo_card = oppo_list.find(function (obj) {
+//     let check = obj["uuid"];
+//     if (check == oppo_uuid) {
+//       return true;
+//     }
+//   });
 
-  let index = oppo_list.indexOf(oppo_card);
-  oppo_list.splice(index, 1);
+//   let index = oppo_list.indexOf(oppo_card);
 
-  localStorage.setItem("opponent_list", JSON.stringify(oppo_list));
+//   let responce = confirm("Do you want to delete this?");
 
-  DialogBox.confirm(
-    "Are you sure want to delete this?",
-    null,
-    "Yes,Delete",
-    "No"
-  ).then((result) => {
-    console.log(result);
-    location.reload();
-  });
+//   if (responce) {
+//     oppo_list.splice(index, 1);
+
+//     localStorage.setItem("opponent_list", JSON.stringify(oppo_list));
+//     location.reload();
+//   }
+// }
+
+// Total teams list
+let total_teams = JSON.parse(localStorage.getItem("team"));
+
+// User's team
+let user_team = total_teams.find((team) => logged == team["login_user"]);
+console.log(user_team);
+
+// If the user had already created the team they can join
+let host_id = [];
+function join_btn(e) {
+  host_id.push(e);
+  localStorage.setItem("oppo_join_uuid", JSON.stringify(e));
+
+  if (user_team != null) {
+    window.location.href = "./Pages/Join/Join.html";
+  }
+}
+
+// if the user joined to the hosted opponent
+let joined_oppo_list = JSON.parse(localStorage.getItem("joined_opponent_list"));
+console.log(joined_oppo_list);
+
+for (let i = 0; i < joined_oppo_list.length; i++) {
+  let join = document.getElementById(joined_oppo_list[i]["hosted_oppo_id"]);
+  if (join.getAttribute("id") == joined_oppo_list[i]["hosted_oppo_id"]) {
+    // Checking if the user is joined or not.
+    let joined_user = joined_oppo_list.find(
+      (team) => join.getAttribute("id") == team["hosted_oppo_id"]
+    );
+    console.log(joined_user);
+
+    // joined user's div has change the border and put the image
+    let joined_user_div = document.getElementsByClassName(
+      joined_user["hosted_oppo_id"]
+    );
+
+    // joined user's image
+    let joined_user_img = joined_user_div[0].firstChild;
+
+    // joined user's para
+    let joined_user_para = joined_user_div[0].lastChild;
+
+    join.innerText = "Joined";
+    join.style.backgroundColor = "slategrey";
+
+    // joined user's div
+    joined_user_div[0].style.border = "none";
+
+    // For joined user's image
+    joined_user_img.setAttribute("src", joined_user["team_logo"]);
+    joined_user_img.style.width = "150px";
+    joined_user_img.style.height = "150px";
+    joined_user_img.style.borderRadius = "50%";
+    joined_user_img.style.marginLeft = "10px";
+
+    // for joined user para it has to the name
+    joined_user_para.innerText = joined_user["team_name"];
+    joined_user_para.style.opacity = "1";
+
+    join.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (joined_user["log_user"] == logged) {
+        alert("You've already joined");
+        window.location.href = "Opponent.html";
+      } else {
+        alert("Someone has already joined");
+        window.location.href = "Opponent.html";
+      }
+    });
+  }
 }

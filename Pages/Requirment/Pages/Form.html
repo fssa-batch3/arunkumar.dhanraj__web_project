@@ -30,7 +30,7 @@
 
     <section id="sec-2">
       <div class="form-div">
-        <form onsubmit="req()">
+        <form id="form">
           <label for="name">Name:</label>
           <input type="text" id="fname" name="name" placeholder="Arunkumar" />
           <label for="age">Age:</label>
@@ -67,15 +67,17 @@ looking for a</textarea
     </section>
     <script>
       // this is a function
-      function req() {
-        event.preventDefault();
+      let form = document.getElementById("form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
         let name = document.getElementById("fname").value;
         let message = document.getElementById("text").value;
         let age = document.getElementById("age").value;
         let place = document.getElementById("place").value;
         let number = document.getElementById("mob-number").value;
         let login_email = JSON.parse(localStorage.getItem("details"));
-        // let category = document.getElementsById("category").value;
+        let category = document.getElementById("category").value;
         let req_id = Date.now();
 
         let obj = {};
@@ -86,7 +88,7 @@ looking for a</textarea
         obj["place"] = place;
         obj["number"] = number;
         obj["login_email"] = login_email;
-        // obj["category"] = category;
+        obj["category"] = category;
 
         obj["id"] = req_id;
 
@@ -99,7 +101,7 @@ looking for a</textarea
 
         localStorage.setItem("req_list", JSON.stringify(req_arr));
         window.location.href = "../Requirment.html";
-      }
+      });
     </script>
   </body>
 </html>

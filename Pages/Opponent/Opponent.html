@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Assests/Css/opponent.css" />
-    <link 
+    <link
       href="https://fonts.googleapis.com/css2?family=Alegreya&family=Klee+One&family=Rajdhani&display=swap"
       rel="stylesheet"
     />
@@ -18,8 +18,8 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="../../Assests/Css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.css">
+    <link rel="stylesheet" href="../../Assests/Css/style.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.css"> -->
     <title>Opponent</title>
   </head>
   <body>
@@ -35,9 +35,9 @@
         </div>
       </a>
       <nav class="nav-links">
-        <a href="#home" class="nav-list">Home</a>
-        <a href="#features" class="nav-list">Features</a>
-        <a href="#about" class="nav-list">About</a>
+        <a href="#" class="nav-list" onclick="home()">Home</a>
+        <a href="#" class="nav-list" onclick="features()">Features</a>
+        <a href="#" class="nav-list" onclick="about()">About</a>
 
         <div class="register">
           <a href="#">
@@ -55,7 +55,7 @@
         />
         <div class="dropdown-content" id="myDropdown">
           <a href="#" onclick="logout()">Log out</a>
-          <a href="#">Profile</a>
+          <a href="#" onclick="user()">Profile</a>
         </div>
       </nav>
     </header>
@@ -69,7 +69,7 @@
           <p>Want to play cricket? <br />But don't have an opponent team?</p>
           <p></p>
           <p>We are providing you a team with pre-scheduled match.</p>
-         <a href="#container"><button>Join now</button></a> 
+          <a href="#main-container"><button>Join now</button></a>
         </div>
         <div class="content-image">
           <img src="./Assests/Images/gif/undraw_home_run_re_e222.svg" />
@@ -81,14 +81,13 @@
             If you can't find matches nearby.<br />You can host one.Try hosting
             a match?
           </p>
-         <a href="#"><button onclick="host_oppo()">Host a match</button></a> 
+          <a href="#"><button onclick="host_oppo()">Host a match</button></a>
         </div>
 
         <!-- Already hosted -->
 
-  <div class="main-container" id="main-container">
-
-  <div class="container" >
+        <div class="main-container" id="main-container">
+          <!-- <div class="container" >
     <div class="opponent-logo">
       <div>
         <img class="oppo-logo" src="./Assests/Images/icon/logo 2.jpg" />
@@ -112,15 +111,14 @@
       </div>
       <div class="join-btn"><a href="./Pages/Join/Join.html"><button>Join</button></a></div>
     </div>
-    <!--place-date-container  -->
-  </div>
+    place-date-container 
+  </div> -->
 
-  <!-- container div -->
+          <!-- container div -->
 
-
-<!-- one host done -->
-  <!-- two host -->
-  <div class="container">
+          <!-- one host done -->
+          <!-- two host -->
+          <!-- <div class="container">
     <div class="opponent-logo">
       <div>
         <img class="oppo-logo"  src="./Assests/Images/icon/logo 1.jpg" />
@@ -144,11 +142,11 @@
       </div>
       <div class="join-btn"><a href="./Pages/Join/Join.html"><button>Join</button></a></div>
     </div>
-    <!--place-date-container  -->
-  </div>
+    place-date-container 
+  </div> -->
 
-<!-- two host done -->
-<div class="container">
+          <!-- two host done -->
+          <!-- <div class="container">
   <div class="opponent-logo">
     <div>
       <img class="oppo-logo"  src="./Assests/Images/icon/logo 3.jpg" />
@@ -172,11 +170,11 @@
     </div>
     <div class="join-btn"><a href="./Pages/Join/Join.html"><button>Join</button></a></div>
   </div>
-  <!--place-date-container  -->
-</div>
-<!-- three host done -->
+  place-date-container 
+</div> -->
+          <!-- three host done -->
 
-<div class="container">
+          <!-- <div class="container">
   <div class="opponent-logo">
     <div>
       <img class="oppo-logo"  src="./Assests/Images/icon/logo 4.jpg"/>
@@ -200,58 +198,52 @@
     </div>
     <div class="join-btn"><a href="./Pages/Join/Join.html"><button>Join</button></a></div>
   </div>
-  <!--place-date-container  -->
-</div>
-<!-- host 4 done -->
+  place-date-container 
+</div> -->
+          <!-- host 4 done -->
 
-<!-- main container done -->
-</div>
-
-
-
-
-
+          <!-- main container done -->
+        </div>
       </section>
     </main>
-    
-<footer>
-  <div class="links">
-    <h1>Quick links</h1>
 
-    <p><a href="../../index.html">Home</a></p>
-    <p><a href="../Turf/Turf.html">Turf</a></p>
-    <p><a href="../Opponent/Opponent.html">Opponents</a></p>
-    <p>
-      <a href="../Requirment/Requirment.html  ">Post your requirments</a>
-    </p>
-    <p><a href="../../index.html">About</a></p>
-  </div>
-  <div class="contact">
-    <h1>Contact</h1>
-    <p>Freshworks software academy,</p>
-    <p>Global infocity,</p>
-    <p>Perungkudi,Chennai.</p>
-    <p>Phone: +91 6385102549</p>
-    <p>Email: arunkumar.dhanraj@fssa.freshworks.com</p>
-  </div>
-  <div class="connect">
-    <h1>Connect Us</h1>
-    <div class="connect-images">
-      <a href="https://www.facebook.com/arun.dhanraj.75" target="_blank"
-        ><img src="../../Assests/Images/icon/facebook.gif"
-      /></a>
-      <a href="https://www.instagram.com/arun_smithan/" target="_blank"
-        ><img src="../../Assests/Images/icon/instagram.gif"
-      /></a>
-      <a href="https://wa.me/qr/RFF4LBMRVVPLB1" target="_blank"
-        ><img src="../../Assests/Images/icon/whatsapp.gif"
-      /></a>
-    </div>
-  </div>
-</footer>
-<script src="../../script.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.js"></script>
-<script src="./Opponent.js"></script>
+    <footer>
+      <div class="links">
+        <h1>Quick links</h1>
+
+        <p><a href="../../index.html">Home</a></p>
+        <p><a href="../Turf/Turf.html">Turf</a></p>
+        <p><a href="../Opponent/Opponent.html">Opponents</a></p>
+        <p>
+          <a href="../Requirment/Requirment.html  ">Post your requirments</a>
+        </p>
+        <p><a href="../../index.html">About</a></p>
+      </div>
+      <div class="contact">
+        <h1>Contact</h1>
+        <p>Freshworks software academy,</p>
+        <p>Global infocity,</p>
+        <p>Perungkudi,Chennai.</p>
+        <p>Phone: +91 6385102549</p>
+        <p>Email: arunkumar.dhanraj@fssa.freshworks.com</p>
+      </div>
+      <div class="connect">
+        <h1>Connect Us</h1>
+        <div class="connect-images">
+          <a href="https://www.facebook.com/arun.dhanraj.75" target="_blank"
+            ><img src="../../Assests/Images/icon/facebook.gif"
+          /></a>
+          <a href="https://www.instagram.com/arun_smithan/" target="_blank"
+            ><img src="../../Assests/Images/icon/instagram.gif"
+          /></a>
+          <a href="https://wa.me/qr/RFF4LBMRVVPLB1" target="_blank"
+            ><img src="../../Assests/Images/icon/whatsapp.gif"
+          /></a>
+        </div>
+      </div>
+    </footer>
+    <script src="../../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Kishor-550/Custom-Dialogbox@main/dialogbox.js"></script>
+    <script src="./Opponent.js"></script>
   </body>
-  
 </html>

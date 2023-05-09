@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | Creckett</title>
+    <link rel="stylesheet" href="./Assests/Css/Req_profile.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"
+      >
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="logo-div" onclick="index()">
+              <img
+                class="logo-pic"
+                src="../../../../Assests/Images/Ball-new.jpg"
+                alt="Ball"
+              />
+              <p class="logo-name">Creckett</p>
+            </div>
+          </div>
+          <form class="panel-body" id="form">
+            <div class="row">
+              <div class="col-md-3 col-lg-3">
+                <img
+                  alt="User Pic"
+                  id="profile-pic"
+                  class="img-circle img-responsive"
+                />
+
+                <h3 class="panel-title" id="username"></h3>
+              </div>
+              <div class="col-md-9 col-lg-9" id="form">
+                <div class="main-details">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>First Name :</td>
+                        <td><input id="fname" type="text" disabled /></td>
+                      </tr>
+                      <tr>
+                        <td>Last Name :</td>
+                        <td><input id="lname" type="text" disabled /></td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth :</td>
+                        <td>
+                          <input id="dob" type="date" disabled />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Age :</td>
+                        <td><input id="age" type="number" disabled /></td>
+                      </tr>
+
+                      <tr>
+                        <td>Gender :</td>
+                        <td>
+                          <select name="gender" id="gender" disabled>
+                            <option value="-">-</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not to say">
+                              Prefer not to say
+                            </option>
+                            <option value="Other">Other</option>
+                          </select>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="phone">Phone Number :</td>
+                        <td>
+                          <input id="phone-number" type="number" disabled />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Address :</td>
+                        <td>
+                          <textarea
+                            name="address"
+                            id="address"
+                            cols="23"
+                            rows="4"
+                            disabled
+                          ></textarea>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td class="alter">Alternative Number :</td>
+                        <td>
+                          <input id="alter-number" type="number" disabled />
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Email :</td>
+                        <td><input id="email" type="email" disabled /></td>
+                      </tr>
+
+                      <tr>
+                        <td>Blood Group :</td>
+                        <td>
+                          <select class="blood-group" id="blood-group" disabled>
+                            <option value="-">-</option>
+                            <option value="A +ve">A +ve</option>
+                            <option value="B +ve">B +ve</option>
+                            <option value="O +ve">O +ve</option>
+                            <option value="AB +ve">AB +ve</option>
+                            <option value="A -ve">A -ve</option>
+                            <option value="B +ve">B -ve</option>
+                            <option value="O +ve">O -ve</option>
+                            <option value="AB +ve">AB -ve</option>
+                          </select>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Your availability :</td>
+                        <td id="avail">
+                          <input id="availability" type="text" disabled />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Skill Level :</td>
+                        <td>
+                          <select name="skill" id="skill" disabled>
+                            <option value="-">-</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Professional">Professional</option>
+                          </select>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>Category :</td>
+                        <td>
+                          <input id="category" type="text" disabled />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Individual Record :</td>
+                        <td>
+                          <textarea
+                            id="record"
+                            type="text"
+                            disabled
+                            rows="4px"
+                            cols="23px"
+                          ></textarea>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="edit-delete-div">
+                  <button class="back" id="back">Back</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./Req_profile.js"></script>
+  </body>
+</html>

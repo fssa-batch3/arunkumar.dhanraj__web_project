@@ -1,7 +1,7 @@
 let turf_card = JSON.parse(localStorage.getItem("turflist"));
 let logged = JSON.parse(localStorage.getItem("details"));
-// Host turf only if logged in
 
+// Host turf only if logged in
 function host_turf() {
   if (logged != null) {
     location.href = "./Pages/Host turf.html";
@@ -10,14 +10,7 @@ function host_turf() {
   }
 }
 
-// JSON for the product
-//let turf_card = [];
-
-//
-// end of the JSON
-
 // function for create
-//function create_card(turf_card) {
 for (let i = 0; i < turf_card.length; i++) {
   // for append
   //<div class="turf-details-1"></div>
@@ -64,19 +57,23 @@ for (let i = 0; i < turf_card.length; i++) {
   div_details_book_btn.setAttribute("class", "details-book-btn");
   div_turf_details_1.append(div_details_book_btn);
 
-  //<a href="./Pages/Book.html"></a>
-  let a;
-  a = document.createElement("a");
-  a.setAttribute("href", "./Pages/Book.html");
-  div_details_book_btn.append(a);
+  if (turf_card[i]["login_email"] != logged) {
+    //<a href="./Pages/Book.html"></a>
+    let a;
+    a = document.createElement("a");
+    // a.setAttribute("href", "./Pages/Book.html");
+    div_details_book_btn.append(a);
 
-  //<button>Book now</button>
-  let button;
-  button = document.createElement("button");
-  button.setAttribute("id", "btn");
-  button.innerText = "Book now";
-  a.append(button);
-  //append book
+    //<button>Book now</button>
+    let button;
+    button = document.createElement("button");
+    button.setAttribute("class", "btn");
+    button.setAttribute("id", turf_card[i]["turf_id"]);
+    button.setAttribute("onclick", "book_btn(this.id)");
+    button.innerText = "Book now";
+    a.append(button);
+    //append book
+  }
 
   if (turf_card[i]["login_email"] == logged) {
     // edit and delete div
@@ -93,7 +90,7 @@ for (let i = 0; i < turf_card.length; i++) {
     edit_img = document.createElement("img");
     edit_img.setAttribute("src", "./Assests/Images/icon/pencil.svg");
     edit_img.setAttribute("alt", "edit");
-    edit_img.setAttribute("id", turf_card[i]["id"]);
+    edit_img.setAttribute("id", turf_card[i]["turf_id"]);
     edit_img.setAttribute("onclick", "edit(this.id)");
     editAndDelete_div.append(edit_img);
 
@@ -102,7 +99,7 @@ for (let i = 0; i < turf_card.length; i++) {
     let delete_img;
     delete_img = document.createElement("img");
     delete_img.setAttribute("src", "./Assests/Images/icon/delete.svg");
-    delete_img.setAttribute("id", turf_card[i]["id"]);
+    delete_img.setAttribute("id", turf_card[i]["turf_id"]);
     delete_img.setAttribute("onclick", "del(this.id)");
     editAndDelete_div.append(delete_img);
   }
@@ -132,7 +129,7 @@ function del(id) {
   let turf_uuid = JSON.parse(localStorage.getItem("turf_delete_uuid"));
   console.log(turf_uuid);
   let turfcard = turf_list.find(function (obj) {
-    let check_id = obj["id"];
+    let check_id = obj["turf_id"];
     if (check_id == turf_uuid) {
       return true;
     }
@@ -142,9 +139,58 @@ function del(id) {
   let det = turf_list.indexOf(turfcard);
   console.log(det);
 
-  turf_list.splice(det, 1);
-  localStorage.setItem("turflist", JSON.stringify(turf_list));
-  location.reload();
+  let responce = confirm("Do you want to delete your this?");
+
+  if (responce) {
+    turf_list.splice(det, 1);
+    localStorage.setItem("turflist", JSON.stringify(turf_list));
+    location.reload();
+  }
 }
 
-// delete
+// setting the id for the book button that who has created
+let host_id = [];
+function book_btn(e) {
+  // console.log(e);
+  host_id.push(e);
+
+  localStorage.setItem("turf_book_id", JSON.stringify(e));
+
+  if (logged != null) {
+    window.location.href = "./Pages/Book.html";
+  } else {
+    alert("If you want to book this turf, You have to login");
+  }
+}
+
+// if booked, book button has to change as booked
+
+let turf_booking = JSON.parse(localStorage.getItem("turf_booking"));
+
+let booked = turf_booking.filter((book) => logged == book["login_user"]);
+
+for (let i = 0; i < booked.length; i++) {
+  let button_id = document
+    .getElementById(booked[i]["turf_book_id"])
+    .getAttribute("id");
+
+  let button_but = document.getElementById(booked[i]["turf_book_id"]);
+
+  if (button_id == booked[i]["turf_book_id"]) {
+    button_but.style.backgroundColor = "slategrey";
+    button_but.innerText = "Booked";
+    console.log("check");
+    button_but.addEventListener("click", function (e) {
+      e.preventDefault();
+      let responce = confirm(
+        "Do you want to book the same turf for various time? "
+      );
+
+      if (responce) {
+        window.location.href = "./Pages/Book.html";
+      } else {
+        location.reload();
+      }
+    });
+  }
+}
