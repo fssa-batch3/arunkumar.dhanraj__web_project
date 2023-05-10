@@ -142,48 +142,6 @@ for (let i = 0; i < oppo.length; i++) {
   document.getElementById("main-container").append(div_container);
 }
 
-// opponent_card's uuid to edit button
-// let edit_id = [];
-// function edit() {
-//   const uuid = document.getElementById("edit").getAttribute("class");
-//   edit_id.push(uuid);
-//   console.log(edit_id);
-
-//   localStorage.setItem("opponent_edit_uuid", JSON.stringify(edit_id));
-//   location.href = "./Pages/Host/edit.html";
-// }
-
-// opponent_card' uuid to delete button
-// let del_id = [];
-// console.log(del_id);
-// function del(uuid) {
-//   del_id.push(uuid);
-
-//   localStorage.setItem("opponent_delete_uuid", JSON.stringify(del_id));
-
-//   let oppo_list = JSON.parse(localStorage.getItem("opponent_list"));
-//   console.log(oppo_list);
-//   let oppo_uuid = JSON.parse(localStorage.getItem("opponent_delete_uuid"));
-//   console.log(uuid);
-//   let oppo_card = oppo_list.find(function (obj) {
-//     let check = obj["uuid"];
-//     if (check == oppo_uuid) {
-//       return true;
-//     }
-//   });
-
-//   let index = oppo_list.indexOf(oppo_card);
-
-//   let responce = confirm("Do you want to delete this?");
-
-//   if (responce) {
-//     oppo_list.splice(index, 1);
-
-//     localStorage.setItem("opponent_list", JSON.stringify(oppo_list));
-//     location.reload();
-//   }
-// }
-
 // Total teams list
 let total_teams = JSON.parse(localStorage.getItem("team"));
 

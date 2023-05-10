@@ -73,7 +73,8 @@ nav {
   cursor: pointer;
   display: none;
 }
-.login-btn {
+.login-btn,
+.signup-btn {
   /* font-size: 20px;
   font-weight: lighter;
   transition: 0.5s;
@@ -102,7 +103,8 @@ nav {
   cursor: pointer;
   outline: none;
 }
-.login-btn:hover {
+.login-btn:hover,
+.signup-btn:hover {
   cursor: pointer;
   color: #2a850e;
 
@@ -112,6 +114,11 @@ nav {
   /* box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4); */
   /* color: #fff; */
   /* transform: translateY(-7px); */
+}
+.signup-btn {
+  background-color: #94ca65;
+  width: 100px;
+  height: 0px;
 }
 .nav-links a {
   color: #132a13;
