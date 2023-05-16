@@ -11,16 +11,11 @@ function host_req() {
 }
 
 // if requirements are null, have to show there are no req
-if (requirment == null) {
+if (requirment.length == 0) {
   document.getElementById("h2").style.display = "block";
 }
-// time ago
-let time = new Date();
-let ago = time.toDateString();
 
-// main
 // local storage
-
 for (let i = 0; i < requirment.length; i++) {
   //  <div class="requir-1"></div>
   let div_requir_1;
@@ -34,16 +29,21 @@ for (let i = 0; i < requirment.length; i++) {
   div_profile_details.setAttribute("class", "profile-details");
   div_requir_1.append(div_profile_details);
 
+  let anchor;
+  anchor = document.createElement("a");
+  anchor.setAttribute(
+    "href",
+    "./Pages/profile/Req_profile.html?req_id=" + requirment[i]["login_email"]
+  );
+  div_profile_details.append(anchor);
+
   //  <img class="profile" src="./Assests/Images/Image/logo/cricketer (1).png">
   let img_profile;
   img_profile = document.createElement("img");
   img_profile.setAttribute("class", "profile_logo");
-  img_profile.setAttribute(
-    "src",
-    "./Assests/Images/Image/logo/cricketer (1).png"
-  );
-  // img_profile.setAttribute("alt", "...");
-  div_profile_details.append(img_profile);
+  img_profile.setAttribute("src", requirment[i]["profile_logo"]);
+  img_profile.setAttribute("alt", "Profile");
+  anchor.append(img_profile);
 
   // <div></div>
   let div_para;
@@ -59,7 +59,7 @@ for (let i = 0; i < requirment.length; i++) {
   // <p></p>
   let p_para;
   p_para = document.createElement("p");
-  p_para.innerText = ago;
+  p_para.innerText = requirment[i]["time"];
   div_para.append(p_para);
 
   //  profile-1

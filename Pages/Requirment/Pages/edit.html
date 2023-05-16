@@ -34,83 +34,7 @@
         /* Background */
         background-color: rgb(239, 237, 237);
       }
-      /* header {
-        display: flex;
-      
-        height: 65px;
-        justify-content: space-between;
-        background-color: white;
-        box-shadow: rgb(220 220 220) 0px 2px 8px;
-      
-        position: sticky;
-        top: 0px;
-      }
-      .logo-div {
-        display: flex;
-      
-        width: 180px;
-        height: 68px;
-      
-        align-items: center;
-        justify-content: space-evenly;
-      }
-      .logo-pic {
-        width: 40px;
-        border-radius: 50%;
-      }
-      .logo-name {
-        font-family: "Rajdhani", sans-serif;
-        font-size: 29px;
-        font-weight: bold;
-      }
-      nav {
-        display: flex;
-        align-items: center;
-        width: 105px;
-        gap: 65px;
-      }
-      .nav-list {
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
-        font-size: 20px;
-        text-decoration: none;
-        color: black;
-      }
-      .login-btn {
-        font-size: 20px;
-        font-weight: lighter;
-        transition: 0.5s;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
-      
-        color: black;
-        padding: 6px 15px;
-        background-color: #94ca65;
-        border: none;
-        border-radius: 8px;
-      }
-      .nav-links a {
-        color: #132a13;
-        transition: 0.3s;
-      }
-      .nav-list:active {
-        opacity: 0.3;
-      }
-      .login-btn:active {
-        opacity: 0.3;
-      }
-      .login-btn:hover {
-        cursor: pointer;
-        font-size: 25px;
-      }
-      .nav-list:hover {
-        color: #2a850e;
-        font-size: 25px;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
-        border-bottom: 2px solid;
-      } */
+
       .form-div {
         /* margin-top: 5px; */
         display: flex;
@@ -165,24 +89,18 @@
     </style>
   </head>
   <body>
-    <!-- <header>
-      <div class="logo-div">
-        <img class="logo-pic" src=".././../../Assests/Images/Ball-new.jpg" />
-        <p class="logo-name">Creckett</p>
-      </div>
-      <nav class="nav-links">
-      
-
-        <a href="#"><button class="login-btn">Log in</button> </a>
-      </nav>
-    </header> -->
-
     <section id="sec-2">
       <div class="form-div">
         <form>
           <label for="name">Name:</label>
-          <input type="text" id="fname" name="name" placeholder="Arunkumar" />
-          <label for="age">Age:</label>
+          <input
+            type="text"
+            id="fname"
+            name="name"
+            placeholder="Arunkumar"
+            disabled
+          />
+          <!-- <label for="age">Age:</label>
           <input type="number" id="age" name="age" placeholder="22" />
           <label for="place">Place:</label>
           <input
@@ -197,21 +115,22 @@
             id="mob-number"
             name="mob-number"
             placeholder="+91"
-          />
+          /> -->
           <label for="name">Category:</label>
-          <select name="category" id="category">
+          <input type="text" id="category" disabled />
+          <!-- <select name="category" id="category">
             <option value="All">All</option>
             <option value="Bowler">Bowler</option>
             <option value="Batter">Batter</option>
             <option value="Wicket keeper">Wicket keeper</option>
             <option value="All rounder">All rounder</option>
-          </select>
+          </select> -->
           <label for="textarea">Looking for:</label>
           <textarea name="comment" form="usrform" id="text">
 looking for a</textarea
           >
+          <button id="save"><a>Save</a></button>
         </form>
-        <button type="submit" onclick="save()"><a>Save</a></button>
       </div>
     </section>
     <script>
@@ -229,27 +148,29 @@ looking for a</textarea
 
       const name = document.getElementById("fname");
       const req_msg = document.getElementById("text");
-      const age = document.getElementById("age");
-      const place = document.getElementById("place");
-      const number = document.getElementById("mob-number");
+      // const age = document.getElementById("age");
+      // const place = document.getElementById("place");
+      // const number = document.getElementById("mob-number");
       const type = document.getElementById("category");
 
       name.value = req_card["name"];
       req_msg.value = req_card["message"];
-      age.value = req_card["age"];
-      place.value = req_card["place"];
-      number.value = req_card["number"];
+      // age.value = req_card["age"];
+      // place.value = req_card["place"];
+      // number.value = req_card["number"];
       type.value = req_card["category"];
 
-      function save() {
+      document.getElementById("save").addEventListener("click", function (e) {
+        e.preventDefault();
+
         const name = document.getElementById("fname").value;
         const message = document.getElementById("text").value;
-        const age = document.getElementById("age").value;
-        const place = document.getElementById("place").value;
-        const number = document.getElementById("mob-number").value;
+        // const age = document.getElementById("age").value;
+        // const place = document.getElementById("place").value;
+        // const number = document.getElementById("mob-number").value;
         const category = document.getElementById("category").value;
 
-        let req_obj = { name, message, age, place, number, category };
+        let req_obj = { name, message, category };
         console.log(req_obj);
         let update = Object.assign(req_card, req_obj);
         console.log(update);
@@ -259,7 +180,7 @@ looking for a</textarea
 
         localStorage.setItem("req_list", JSON.stringify(req_list));
         location.href = "../Requirment.html";
-      }
+      });
     </script>
   </body>
 </html>

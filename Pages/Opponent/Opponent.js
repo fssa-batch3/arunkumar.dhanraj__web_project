@@ -1,16 +1,12 @@
 let oppo = JSON.parse(localStorage.getItem("opponent_list"));
 let logged = JSON.parse(localStorage.getItem("details"));
 
-// host match only if logged in
-function host_oppo() {
-  if (logged != null) {
-    location.href = "./Pages/Host/Host.html";
-  } else {
-    alert("If you want to host a match, You have to login");
-  }
+// If there are no matches
+if (oppo.length === 0) {
+  document.querySelector(".no-matches").style.display = "block";
 }
 
-for (let i = 0; i < oppo.length; i++) {
+for (let i = 0; i < oppo?.length; i++) {
   // <div class="container" >
   let div_container = document.createElement("div");
   div_container.setAttribute("class", "container");
@@ -144,19 +140,49 @@ for (let i = 0; i < oppo.length; i++) {
 
 // Total teams list
 let total_teams = JSON.parse(localStorage.getItem("team"));
+console.log(total_teams);
 
 // User's team
 let user_team = total_teams.find((team) => logged == team["login_user"]);
 console.log(user_team);
 
+// If user hast already created the team they can host the match otherwise can't
+function host_oppo() {
+  // host match only if logged in
+  if (logged === null) {
+    alert("If you want to host a match, You have to login");
+    return;
+  } else if (user_team != null) {
+    location.href = `./Pages/Host/Host.html?name=${user_team["team_name"]}&logo=${user_team["team_logo"]}`;
+  } else {
+    alert("You don't have team to Host matches");
+    window.location.href = "../Profile/userprofile.html";
+  }
+}
+
 // If the user had already created the team they can join
 let host_id = [];
 function join_btn(e) {
-  host_id.push(e);
-  localStorage.setItem("oppo_join_uuid", JSON.stringify(e));
-
-  if (user_team != null) {
+  if (logged === null) {
+    alert("If you want join this match, You have to login");
+    return;
+  }
+  // the one who creates the match can;t join
+  let uuid = oppo.find((id) => e == id["uuid"]);
+  if (uuid["login_email"] == logged) {
+    alert(
+      "Are you stupid? You only created this match, You can't join this match"
+    );
+    return;
+  }
+  if (user_team.length != 0) {
+    host_id.push(e);
+    localStorage.setItem("oppo_join_uuid", JSON.stringify(e));
+    console.log("check");
     window.location.href = "./Pages/Join/Join.html";
+  } else {
+    alert("You don't have team to join matches");
+    window.location.href = "../Profile/userprofile.html";
   }
 }
 
@@ -164,7 +190,7 @@ function join_btn(e) {
 let joined_oppo_list = JSON.parse(localStorage.getItem("joined_opponent_list"));
 console.log(joined_oppo_list);
 
-for (let i = 0; i < joined_oppo_list.length; i++) {
+for (let i = 0; i < joined_oppo_list?.length; i++) {
   let join = document.getElementById(joined_oppo_list[i]["hosted_oppo_id"]);
   if (join.getAttribute("id") == joined_oppo_list[i]["hosted_oppo_id"]) {
     // Checking if the user is joined or not.

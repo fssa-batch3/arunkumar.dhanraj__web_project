@@ -56,6 +56,13 @@ html {
 .host p {
   font-size: 25px;
 }
+.no-matches {
+  display: none;
+  text-align: center;
+  font-size: 23px;
+  opacity: 0.6;
+  padding: 40px;
+}
 .host button {
   padding: 10px 20px;
   font-size: 15px;

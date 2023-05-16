@@ -6,7 +6,7 @@ body {
   justify-content: center;
 
   /* Take full size */
-  height: 95.5vh;
+  height: 97.5vh;
   width: 99%;
 
   background-color: rgb(200, 222, 222);
@@ -41,7 +41,18 @@ form {
 .form-div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
   gap: 5px;
+}
+.logo {
+  align-items: center;
+  gap: 20px;
+}
+.logo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 input {
   width: 400px;

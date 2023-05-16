@@ -63,6 +63,8 @@ nav {
 .register {
   display: flex;
   gap: 30px;
+  align-items: center;
+  width: max-content;
   /* display: none; */
   /* margin-right: 10px; */
 }
@@ -85,6 +87,7 @@ nav {
   background-color: #94ca65;
   border: none;
   border-radius: 8px; */
+  margin: 0px 3px;
 
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -103,22 +106,26 @@ nav {
   cursor: pointer;
   outline: none;
 }
-.login-btn:hover,
-.signup-btn:hover {
+.login-btn:hover {
   cursor: pointer;
   color: #2a850e;
 
   border-bottom: 2px solid;
+
   /* font-size: 25px;  */
   /* background-color: #23c483; */
   /* box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4); */
   /* color: #fff; */
   /* transform: translateY(-7px); */
 }
+.signup-btn:hover {
+  cursor: pointer;
+  background-color: #588b2c;
+}
+
 .signup-btn {
   background-color: #94ca65;
-  width: 100px;
-  height: 0px;
+  padding: 12px;
 }
 .nav-links a {
   color: #132a13;

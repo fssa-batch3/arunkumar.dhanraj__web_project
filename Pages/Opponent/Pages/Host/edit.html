@@ -15,6 +15,10 @@
     <main>
       <section>
         <form id="form">
+          <div class="form-div logo">
+            <img alt="logo" id="logo" />
+            <div class="name"></div>
+          </div>
           <div class="form-div">
             <label for="type">Game type:</label>
             <select name="gametype" id="gametype" class="select">
@@ -26,7 +30,7 @@
             </select>
           </div>
 
-          <div class="form-div">
+          <!-- <div class="form-div">
             <label for="text">Team name:</label>
             <input type="text" id="name" name="name" />
           </div>
@@ -34,7 +38,7 @@
           <div class="form-div">
             <label for="text">Team logo:</label>
             <input type="text" id="logo" name="logo" />
-          </div>
+          </div> -->
 
           <div class="form-div">
             <label for="date">Pick a date:</label>
@@ -74,15 +78,15 @@
       });
 
       const game_type = document.getElementById("gametype");
-      const team_name = document.getElementById("name");
+      const team_name = document.querySelector(".name");
       const team_logo = document.getElementById("logo");
       const date = document.getElementById("date");
       const time = document.getElementById("time");
       const place = document.getElementById("place");
 
       game_type.value = oppo_card["game_type"];
-      team_name.value = oppo_card["team_name"];
-      team_logo.value = oppo_card["team_logo"];
+      team_name.innerHTML = oppo_card["team_name"];
+      team_logo.setAttribute("src", oppo_card["team_logo"]);
       date.value = oppo_card["date"];
       time.value = oppo_card["time"];
       place.value = oppo_card["place"];
@@ -91,8 +95,8 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         const edit_type = document.getElementById("gametype").value;
-        const edit_name = document.getElementById("name").value;
-        const edit_logo = document.getElementById("logo").value;
+        const edit_name = oppo_card["team_name"];
+        const edit_logo = oppo_card["team_logo"];
         const edit_date = document.getElementById("date").value;
         const edit_time = document.getElementById("time").value;
         const edit_place = document.getElementById("place").value;
