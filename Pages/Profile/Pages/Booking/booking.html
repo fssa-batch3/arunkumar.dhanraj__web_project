@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookings</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./booking.css" />
+  </head>
+  <body>
+    <header>
+      <a href="#">
+        <div class="logo-div" onclick="index()">
+          <img
+            class="logo-pic"
+            src="../../../../Assests/Images/Ball-new.jpg"
+            alt="Ball"
+          />
+          <p class="logo-name">Creckett</p>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <img class="profile" alt="profile" onclick="dropdown()" />
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" onclick="logout()">Log out</a>
+          <a href="#" onclick="user()">Profile</a>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <!-- Booked turfs -->
+      <div class="turf-list">
+        <h1 class="bookings">My Bookings!</h1>
+        <div class="not-book-div">
+          <!-- If haven't booked any turfs -->
+          <div class="not-book">
+            <h1>You haven't booked anything!</h1>
+            <a href="../../../Turf/Turf.html"
+              ><button class="explore">Explore now!</button></a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- joined opponent list -->
+      <div class="oppo-list" id="oppo-list">
+        <h1 class="matches">My Scheduled matches!</h1>
+
+        <!-- If haven't joined any match  -->
+        <div class="no-match-div">
+          <div class="no-match" id="no-match">
+            <h1>You haven't joined any match!</h1>
+            <a href="../../../Opponent/Opponent.html"
+              ><button class="explore">Join now!</button></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./booking.js"></script>
+  </body>
+</html>

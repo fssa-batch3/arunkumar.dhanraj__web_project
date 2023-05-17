@@ -30,8 +30,8 @@
   </head>
   <body>
     <header>
-      <a href="./index.html">
-        <div class="logo-div">
+      <a href="#">
+        <div class="logo-div" onclick="index()">
           <img
             class="logo-pic"
             src="./Assests/Images/Ball-new.jpg"
@@ -45,9 +45,16 @@
         <a href="#features" class="nav-list">Features</a>
         <a href="#about" class="nav-list">About</a>
 
-        <a href="./Pages/Login/login.html">
-          <button class="login-btn">Log in</button></a
-        >
+        <div class="register">
+          <button class="login-btn" onclick="log_in()">Log in</button>
+
+          <button class="signup-btn" onclick="sign_up()">Sign up</button>
+        </div>
+        <img class="profile" alt="profile" onclick="dropdown()" />
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#" onclick="logout()">Log out</a>
+          <a href="#" onclick="user()">Profile</a>
+        </div>
       </nav>
     </header>
     <section id="home" class="sec-1">
@@ -80,7 +87,7 @@
         We are commited to bringing you what you want!
       </div>
       <div class="feat-container">
-        <div class="container-turf">
+        <div class="container-turf" onclick="turf_container()">
           Turf
           <img src="./Assests/Images/turf.jpg" alt="Turf" />
 
@@ -88,7 +95,7 @@
             <button><span>Book now</span></button></a
           >
         </div>
-        <div class="container-opponents">
+        <div class="container-opponents" onclick="opponent_container()">
           Opponent
           <img
             src="./Assests/Images/boys of cricket.jpg"
@@ -99,7 +106,7 @@
             <button><span>Book now</span></button>
           </a>
         </div>
-        <div class="container-requirements">
+        <div class="container-requirements" onclick="requirement_container()">
           Requirment
           <img
             src="./Assests/Images/account-multiple-plus.svg"
@@ -172,5 +179,6 @@
         </div>
       </div>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

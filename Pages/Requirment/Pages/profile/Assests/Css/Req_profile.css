@@ -1,0 +1,150 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Alegreya", serif;
+}
+table {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  font-family: "Alegreya", serif;
+  font-size: inherit;
+  line-height: inherit;
+}
+.logo-div {
+  display: flex;
+
+  width: 180px;
+  height: 68px;
+
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo-div:hover {
+  cursor: pointer;
+}
+.logo-pic {
+  width: 40px;
+  border-radius: 50%;
+}
+.logo-name {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 29px;
+  font-weight: 900;
+  margin-top: 19px;
+}
+
+.user-row {
+  margin-bottom: 14px;
+}
+
+.table-user-information > tbody > tr {
+  border-top: 1px solid #ccc;
+}
+.panel-body {
+  margin-top: 100px;
+}
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 66.7rem;
+}
+
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+
+select {
+  padding: 0.25rem 3.1rem 0.25rem 0rem;
+  outline: none;
+}
+.blood-group {
+  padding: 0.25rem 7.2rem 0.25rem 0rem;
+  outline: none;
+}
+#skill {
+  padding: 0.25rem 4.8rem 0.25rem 0rem;
+}
+#dob {
+  padding-right: 3rem;
+}
+
+.col-md-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+.alter {
+  width: 230px;
+}
+.panel {
+  margin-top: 20px;
+}
+
+.main-details {
+  display: flex;
+  width: max-content;
+  gap: 100px;
+  margin-left: 59px;
+}
+input,
+select,
+textarea {
+  background-color: transparent;
+  border: none;
+}
+
+.edit,
+.delete {
+  padding: 5px;
+  width: 100px;
+}
+.edit:hover,
+.delete:hover {
+  transform: scale(1.05);
+}
+.img-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.edit-delete-div {
+  /* width: max-content; */
+  position: relative;
+  display: flex;
+  gap: 18px;
+  margin-left: 69px;
+}
+.done {
+  width: 100px;
+  display: none;
+}
+.done:hover {
+  background-color: black;
+  color: white;
+}
+.delete {
+  background-color: rgb(233, 157, 157);
+}
+.back {
+  width: 100px;
+  padding: 5px;
+}
+.back:hover {
+  transform: scale(1.05);
+}

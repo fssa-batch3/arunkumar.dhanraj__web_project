@@ -16,47 +16,21 @@
     />
   </head>
   <body>
-    <!-- <header>
-      <div class="logo-div">
-        <img class="logo-pic" src=".././../../Assests/Images/Ball-new.jpg" />
-        <p class="logo-name">Creckett</p>
-      </div>
-      <nav class="nav-links">
-      
-
-        <a href="#"><button class="login-btn">Log in</button> </a>
-      </nav>
-    </header> -->
-
     <section id="sec-2">
       <div class="form-div">
-        <form onsubmit="req()">
+        <form id="form">
           <label for="name">Name:</label>
-          <input type="text" id="fname" name="name" placeholder="Arunkumar" />
-          <label for="age">Age:</label>
-          <input type="number" id="age" name="age" placeholder="22" />
-          <label for="place">Place:</label>
-          <input
-            type="name"
-            id="place"
-            name="place"
-            placeholder="Guduvancherry"
-          />
-          <label for="mob-number">Mobile number:</label>
           <input
             type="text"
-            id="mob-number"
-            name="mob-number"
-            placeholder="+91"
+            id="fname"
+            name="name"
+            placeholder="Arunkumar"
+            disabled
           />
+
           <label for="name">Category:</label>
-          <select name="category" id="category">
-            <option value="All">All</option>
-            <option value="Bowler">Bowler</option>
-            <option value="Batter">Batter</option>
-            <option value="Wicket keeper">Wicket keeper</option>
-            <option value="All rounder">All rounder</option>
-          </select>
+          <input type="text" id="category" disabled />
+
           <label for="textarea">Looking for:</label>
           <textarea name="comment" form="usrform" id="text">
 looking for a</textarea
@@ -65,16 +39,52 @@ looking for a</textarea
         </form>
       </div>
     </section>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script>
-      function req() {
-        event.preventDefault();
+      // Total signed up users
+      let sign = JSON.parse(localStorage.getItem("userDetails"));
+
+      // Now loged user
+      let log = JSON.parse(localStorage.getItem("details"));
+
+      // logged user's details
+      let logged_user = sign.find((name) => log == name["email"]);
+
+      // Putting the profile name/category in the input's field
+      document.getElementById("fname").value =
+        logged_user["fname"] + " " + logged_user["lname"];
+
+      // If first name & last is null
+      if (logged_user["fname"] == "") {
+        document.getElementById("fname").value = logged_user["username"];
+      }
+
+      // Category
+      document.getElementById("category").value = logged_user["category"];
+
+      // this is a function
+      let form = document.getElementById("form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
         let name = document.getElementById("fname").value;
         let message = document.getElementById("text").value;
+        let login_email = JSON.parse(localStorage.getItem("details"));
+        let profile_logo = logged_user["profile"];
+        let category = document.getElementById("category").value;
+        let time = moment().format("LL");
+        let req_id = Date.now();
 
         let obj = {};
 
         obj["name"] = name;
         obj["message"] = `${name} is ${message}`;
+        obj["login_email"] = login_email;
+        obj["category"] = category;
+        obj["profile_logo"] = profile_logo;
+        obj["time"] = time;
+
+        obj["id"] = req_id;
 
         let req_arr = [];
 
@@ -85,7 +95,7 @@ looking for a</textarea
 
         localStorage.setItem("req_list", JSON.stringify(req_arr));
         window.location.href = "../Requirment.html";
-      }
+      });
     </script>
   </body>
 </html>

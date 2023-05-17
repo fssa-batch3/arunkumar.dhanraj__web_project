@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create team</title>
+    <link rel="stylesheet" href="../Team/Assests/Css/team.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="form-div">
+      <form>
+        <label for="name">Team name :</label>
+        <input type="text" id="name" />
+
+        <label for="logo">Team logo :</label>
+        <input type="text" id="logo" />
+
+        <label for="skill">Skill Level :</label>
+        <select name="skill" id="skill">
+          <option value="None">None</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Professional">Professional</option>
+        </select>
+
+        <label for="strength">Team strength :</label>
+        <input
+          type="text"
+          id="strength"
+          name="strength"
+          placeholder="Optional"
+        />
+
+        <label for="message">About your team :</label>
+        <textarea
+          name="message"
+          id="message"
+          cols="6"
+          rows="7"
+          placeholder="Ex: Our team has 11 players"
+        ></textarea>
+        <div class="btn">
+          <button id="create-team"><a>Create team</a></button>
+        </div>
+      </form>
+    </div>
+    <script src="./team.js"></script>
+  </body>
+</html>

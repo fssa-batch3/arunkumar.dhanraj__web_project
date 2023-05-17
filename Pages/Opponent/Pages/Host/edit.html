@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assests/Css/host.css " />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&family=Klee+One&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <title>Edit</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <form id="form">
+          <div class="form-div logo">
+            <img alt="logo" id="logo" />
+            <div class="name"></div>
+          </div>
+          <div class="form-div">
+            <label for="type">Game type:</label>
+            <select name="gametype" id="gametype" class="select">
+              <option value="None">None</option>
+              <option value="10 Overs">10 Overs</option>
+              <option value="12 Overs">12 Overs</option>
+              <option value="16 Overs">16 Overs</option>
+              <option value="20 Overs">20 Overs</option>
+            </select>
+          </div>
+
+          <div class="form-div">
+            <label for="date">Pick a date:</label>
+            <input type="date" id="date" name="date" />
+          </div>
+
+          <div class="form-div">
+            <label for="time">Pick a time:</label>
+            <input type="time" id="time" name="time" />
+          </div>
+
+          <div class="form-div">
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" />
+          </div>
+
+          <div class="host-btn">
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script>
+      let oppo_list = JSON.parse(localStorage.getItem("opponent_list"));
+
+      const product_id = window.location.search;
+      const product_params = new URLSearchParams(product_id);
+      const oppo_uuid = product_params.get("edit_id");
+
+      let oppo_card = oppo_list.find(function (obj) {
+        let check = obj["uuid"];
+
+        if (check == oppo_uuid) {
+          return true;
+        }
+      });
+
+      const game_type = document.getElementById("gametype");
+      const team_name = document.querySelector(".name");
+      const team_logo = document.getElementById("logo");
+      const date = document.getElementById("date");
+      const time = document.getElementById("time");
+      const place = document.getElementById("place");
+
+      game_type.value = oppo_card["game_type"];
+      team_name.innerHTML = oppo_card["team_name"];
+      team_logo.setAttribute("src", oppo_card["team_logo"]);
+      date.value = oppo_card["date"];
+      time.value = oppo_card["time"];
+      place.value = oppo_card["place"];
+
+      let form = document.getElementById("form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const edit_type = document.getElementById("gametype").value;
+        const edit_name = oppo_card["team_name"];
+        const edit_logo = oppo_card["team_logo"];
+        const edit_date = document.getElementById("date").value;
+        const edit_time = document.getElementById("time").value;
+        const edit_place = document.getElementById("place").value;
+
+        let oppo_obj = {
+          game_type: edit_type,
+          team_name: edit_name,
+          team_logo: edit_logo,
+          date: edit_date,
+          time: edit_time,
+          place: edit_place,
+        };
+
+        let update = Object.assign(oppo_card, oppo_obj);
+        console.log(update);
+        let index = oppo_list.indexOf(oppo_card);
+        console.log(index);
+        oppo_list[index] = update;
+
+        localStorage.setItem("opponent_list", JSON.stringify(oppo_list));
+        window.location.href = "../../Opponent.html";
+      });
+    </script>
+  </body>
+</html>

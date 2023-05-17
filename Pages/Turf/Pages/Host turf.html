@@ -66,6 +66,7 @@
         </div>
         <div>
           <label>Ground details:</label>
+
           <textarea
             name="details"
             id="details"
@@ -85,11 +86,13 @@
         let obj = {};
         let logo = document.getElementById("file").value;
         let text = document.getElementById("details").value;
+        let login_email = JSON.parse(localStorage.getItem("details"));
         let turf_id = Date.now();
 
         obj["image"] = logo;
         obj["text"] = text;
-        obj["id"] = turf_id;
+        obj["turf_id"] = turf_id;
+        obj["login_email"] = login_email;
 
         let card = [];
 

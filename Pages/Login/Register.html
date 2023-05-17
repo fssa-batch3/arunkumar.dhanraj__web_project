@@ -135,7 +135,7 @@
               name="phonenumber"
               id="phonenumber"
               type="text"
-              pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+              pattern="[6-9]{1}[0-9]{9}"
               autocomplete="off"
               title="Phone number should be in numbers"
             />
@@ -147,9 +147,9 @@
               class="form-control"
               name="password"
               id="password"
-              pattern="[A-Za-z]{6,20}"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               type="password"
-              title="Password must have 6 letters"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
           </div>
           <div class="form-group">
@@ -159,9 +159,9 @@
               class="form-control"
               name="confirm-password"
               id="confirm-password"
-              pattern="[A-Za-z]{6,20}"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               type="password"
-              title="Password must 6 letters"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
             />
           </div>
           <button type="submit" class="btn">Sumbit</button>
@@ -173,70 +173,73 @@
       let registerForm = document.getElementById("register");
       registerForm.addEventListener("submit", function (event) {
         event.preventDefault();
+
         let user = [];
         let userdata = {};
+
         const username = document.getElementById("username").value.trim();
-        const email = document.getElementById("email").value;
+        let email = document.getElementById("email").value;
         const phonenumber = document.getElementById("phonenumber").value;
         const password = document.getElementById("password").value;
         const confirm_password =
           document.getElementById("confirm-password").value;
-
-        // if (username === "") {
-        //   alert("Name can't be blank");
-        //   return false;
-        // } else if (password.length < 6) {
-        //   alert("Password is too weak");
-        //   return false;
-        // }
-        // if (password != confirm_password) {
-        //   alert("Confirm password is diffrent from password");
-        //   return false;
-        // }
-        // if (phonenumber.length < 10) {
-        //   alert("Phone number must contain 10 number");
-        //   return false;
-        // }
 
         userdata["username"] = username;
         userdata["email"] = email;
         userdata["phonenumber"] = phonenumber;
         userdata["password"] = password;
         userdata["confirm-password"] = confirm_password;
+        userdata["profile"] =
+          window.location.origin + "/Assests/Images/icon/custom.png";
+        userdata["fname"] = "";
+        userdata["lname"] = "";
+        userdata["dob"] = "";
+        userdata["age"] = "";
+        userdata["gender"] = "None";
+        userdata["address"] = "";
+        userdata["alter_number"] = "";
+        userdata["blood_group"] = "None";
+        userdata["avail"] = "";
+        userdata["skill"] = "None";
+        userdata["category"] = "";
+        userdata["record"] = "";
 
-        user.push(userdata);
+        let signup = JSON.parse(localStorage.getItem("userDetails"));
 
-        let match = false;
+        let check = false;
 
-        let exist = localStorage.getItem("userDetails");
-        let obj_arr = JSON.parse(exist);
+        if (signup != null) {
+          user = JSON.parse(localStorage.getItem("userDetails"));
 
-        if (localStorage.getItem("userDetails") === null) {
-          localStorage.setItem("userDetails", JSON.stringify(user));
-          console.log(localStorage.getItem("userDetails"));
-          return true;
-        } else {
-          for (let i = 0; i < obj_arr.length; i++) {
-            if (email === obj_arr[i].email) {
-              // alert("Email is already in use");
-              match = true;
+          //  checking whether the email or username or phone number already exist
+          for (let i = 0; i < signup.length; i++) {
+            if (signup[i]["username"] == username) {
+              alert("Username is already exist");
+              check = true;
+              break;
+            } else if (signup[i]["email"] == email) {
+              alert(" Email is already exist");
+              check = true;
+              break;
+            } else if (signup[i]["phonenumber"] == phonenumber) {
+              alert(" Phone number is already exist");
+              check = true;
               break;
             }
           }
         }
 
-        if (match === true) {
-          alert("Email is already in use");
-        } else {
-          let userLocal = localStorage.getItem("userDetails");
-          let jsonUser = JSON.parse(userLocal);
-          jsonUser.push(userdata);
-          localStorage.setItem("userDetails", JSON.stringify(jsonUser));
+        if (password != confirm_password) {
+          check = true;
+          alert("Password and confirm password doesn't match ");
+        }
 
+        if (check == false) {
+          user.push(userdata);
+          localStorage.setItem("userDetails", JSON.stringify(user));
           location.href = "../Login/login.html";
         }
       });
-      2;
     </script>
   </body>
 </html>

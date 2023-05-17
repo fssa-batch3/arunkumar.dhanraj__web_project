@@ -6,12 +6,10 @@ body {
   justify-content: center;
 
   /* Take full size */
-  height: 100vh;
-  width: 100%;
+  height: 96vh;
+  width: 97%;
 
-  /* Background */
-  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 141929.jpg")
-    center center / cover no-repeat;
+  background-color: rgb(168, 161, 161);
 }
 .team-logo-div {
   display: flex;
@@ -30,11 +28,11 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-.team-logo img {
-  width: 35px;
-  position: absolute;
-  left: 659px;
-  top: 182px;
+#logo {
+  width: 140px;
+  height: 140px;
+  margin-left: 6px;
+  border-radius: 50%;
 }
 #img {
   cursor: pointer;
@@ -49,7 +47,7 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3px;
+  gap: 10px;
   border: 1px solid;
   font-size: 25px;
   width: 400px;
@@ -70,6 +68,8 @@ select {
   margin-top: 20px;
 }
 button {
+  font-size: 17px;
+  font-weight: 500;
   padding: 10px 50px;
   border: none;
   border-radius: 6px;

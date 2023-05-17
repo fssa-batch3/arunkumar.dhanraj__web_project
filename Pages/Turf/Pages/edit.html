@@ -36,10 +36,6 @@
         gap: 10px;
         justify-content: center;
       }
-      /* .label-profile {
-            margin-top: -6px;
-            margin-left: 55px;
-        } */
 
       .submit-btn {
         font-family: "Alegreya", serif;
@@ -65,7 +61,7 @@
           <input type="text" class="file-choose" id="file" required />
         </div>
         <div>
-          <label>Ground details:</label>
+          <label for="ground">Ground details: </label>
           <textarea
             name="details"
             id="details"
@@ -74,11 +70,48 @@
             required
           ></textarea>
         </div>
-        <div>
-          <button type="submit" class="submit-btn">Save</button>
-        </div>
       </form>
+      <div>
+        <button type="submit" class="submit-btn" onclick="save()">Save</button>
+      </div>
     </section>
-    <script></script>
+    <script>
+      let turf_list = JSON.parse(localStorage.getItem("turflist"));
+      console.log(turf_list);
+
+      let turf_uuid = JSON.parse(localStorage.getItem("turf_uuid"));
+
+      console.log(turf_uuid);
+      let turfcard = turf_list.find(function (obj) {
+        let check_id = obj["turf_id"];
+        if (check_id == turf_uuid) {
+          return true;
+        }
+      });
+      console.log(turfcard);
+
+      const profile_logo = document.getElementById("file");
+      const ground_details = document.getElementById("details");
+
+      profile_logo.value = turfcard["image"];
+      ground_details.value = turfcard["text"];
+
+      function save() {
+        const image = document.getElementById("file").value;
+        const text = document.getElementById("details").value;
+
+        let turf_obj = { image, text };
+        console.log(turf_obj);
+        let update = Object.assign(turfcard, turf_obj);
+        console.log(update);
+        let index = turf_list.indexOf(turfcard);
+        console.log(index);
+
+        turf_list[index] = update;
+
+        localStorage.setItem("turflist", JSON.stringify(turf_list));
+        location.href = "../Turf.html";
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,24 @@
+{
+  "name": "creckett",
+  "version": "1.0.0",
+  "description": "CRUD For User signing page\r => Create user account [completed]\r => Read User Data For Profile Page [completed]\r => Update user details For Edit Page [completed]\r => Delete user details For deactivate [completed]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fssa-batch3/arunkumar.dhanraj__web_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fssa-batch3/arunkumar.dhanraj__web_project/issues"
+  },
+  "homepage": "https://github.com/fssa-batch3/arunkumar.dhanraj__web_project#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "husky": "^8.0.3"
+  }
+}

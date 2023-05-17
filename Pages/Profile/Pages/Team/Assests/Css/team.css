@@ -1,0 +1,96 @@
+body {
+  font-family: "Alegreya", serif;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Take full size */
+  height: 97vh;
+  width: 98%;
+
+  /* Background */
+  background: url("../../../../Assests/Images/Image/Screenshot\ 2022-12-19\ 141929.jpg")
+    center center / cover no-repeat;
+}
+.team-logo-div {
+  display: flex;
+  justify-content: center;
+}
+.team-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  background-color: rgb(164, 157, 157);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.team-logo img {
+  width: 35px;
+  position: absolute;
+  left: 659px;
+  top: 182px;
+}
+#img {
+  cursor: pointer;
+}
+.form-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 740px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid;
+  font-size: 25px;
+  outline: none;
+  width: 400px;
+  height: 600px;
+  padding: 30px;
+  border-radius: 9px;
+  background-color: aliceblue;
+}
+textarea {
+  outline: none;
+}
+input,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+option {
+  font-size: 17px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+button {
+  padding: 10px 50px;
+  font-family: "Alegreya", serif;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(139, 233, 139);
+}
+button:hover {
+  background-color: chartreuse;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: black;
+}

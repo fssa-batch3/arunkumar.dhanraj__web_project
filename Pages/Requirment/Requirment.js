@@ -1,23 +1,21 @@
-// let requirment = [
-//   {
-//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-//     para: "D Arunkumar is looking for a team join as a batter in guduvancherry",
-//   },
-//   {
-//     profile_img: "./Assests/Images/Image/logo/cricketer (1).png",
-//     para: "saran is looking for a team join as a batter in guduvancherry",
-//   },
-// ];
-
-// time ago
-let time = new Date();
-let ago = time.toDateString();
-
-// main
-// local storage
-
 let requirment = JSON.parse(localStorage.getItem("req_list"));
+let logged = JSON.parse(localStorage.getItem("details"));
 
+// host turf only if logged in
+function host_req() {
+  if (logged != null) {
+    location.href = "./Pages/Form.html";
+  } else {
+    alert("If you want post your requirments, You have to log in");
+  }
+}
+
+// if requirements are null, have to show there are no req
+if (requirment.length == 0) {
+  document.getElementById("h2").style.display = "block";
+}
+
+// local storage
 for (let i = 0; i < requirment.length; i++) {
   //  <div class="requir-1"></div>
   let div_requir_1;
@@ -31,16 +29,21 @@ for (let i = 0; i < requirment.length; i++) {
   div_profile_details.setAttribute("class", "profile-details");
   div_requir_1.append(div_profile_details);
 
+  let anchor;
+  anchor = document.createElement("a");
+  anchor.setAttribute(
+    "href",
+    "./Pages/profile/Req_profile.html?req_id=" + requirment[i]["login_email"]
+  );
+  div_profile_details.append(anchor);
+
   //  <img class="profile" src="./Assests/Images/Image/logo/cricketer (1).png">
   let img_profile;
   img_profile = document.createElement("img");
-  img_profile.setAttribute("class", "profile");
-  img_profile.setAttribute(
-    "src",
-    "./Assests/Images/Image/logo/cricketer (1).png"
-  );
-  // img_profile.setAttribute("alt", "...");
-  div_profile_details.append(img_profile);
+  img_profile.setAttribute("class", "profile_logo");
+  img_profile.setAttribute("src", requirment[i]["profile_logo"]);
+  img_profile.setAttribute("alt", "Profile");
+  anchor.append(img_profile);
 
   // <div></div>
   let div_para;
@@ -56,7 +59,7 @@ for (let i = 0; i < requirment.length; i++) {
   // <p></p>
   let p_para;
   p_para = document.createElement("p");
-  p_para.innerText = ago;
+  p_para.innerText = requirment[i]["time"];
   div_para.append(p_para);
 
   //  profile-1
@@ -72,12 +75,20 @@ for (let i = 0; i < requirment.length; i++) {
   div_info.setAttribute("class", "info");
   div_more_info.append(div_info);
 
+  let a_href;
+  a_href = document.createElement("a");
+  a_href.setAttribute(
+    "href",
+    "./Pages/profile/Req_profile.html?req_id=" + requirment[i]["login_email"]
+  );
+  div_info.append(a_href);
+
   //<img src="./Assests/Images/Image/boy.png" alt="Profile" />
   let img_share;
   img_share = document.createElement("img");
   img_share.setAttribute("src", "./Assests/Images/Image/boy.png");
   img_share.setAttribute("alt", "Profile");
-  div_info.append(img_share);
+  a_href.append(img_share);
 
   //<p>Profile</p>
   let p_share;
@@ -125,5 +136,67 @@ for (let i = 0; i < requirment.length; i++) {
   p_share_2.innerText = "Contact";
   div_info_2.append(p_share_2);
 
+  if (requirment[i]["login_email"] == logged) {
+    // <div class="edit-delete-btn"></div>
+    let edit_delete;
+    edit_delete = document.createElement("div");
+    edit_delete.setAttribute("class", "edit-delete-btn");
+    div_requir_1.prepend(edit_delete);
+
+    // <img src="./Assests/Images/icon/pencil.svg" alt="edit" />
+    let edit;
+    edit = document.createElement("img");
+    edit.setAttribute("src", "./Assests/Images/icon/pencil.svg");
+    edit.setAttribute("alt", "edit");
+    edit.setAttribute("id", requirment[i]["id"]);
+    edit.setAttribute("onclick", "edit(this.id)");
+    edit_delete.append(edit);
+
+    // <img src="./Assests/Images/icon/delete.svg" alt="delete" />
+    let del;
+    del = document.createElement("img");
+    del.setAttribute("src", "./Assests/Images/icon/delete.svg");
+    del.setAttribute("alt", "delete");
+    del.setAttribute("id", requirment[i]["id"]);
+    del.setAttribute("onclick", "del(this.id)");
+    edit_delete.append(del);
+  }
   document.querySelector(".main-container").append(div_requir_1);
+}
+// edit btn id
+
+let uuid = [];
+function edit(id) {
+  uuid.push(id);
+
+  localStorage.setItem("req_edit_uuid", JSON.stringify(uuid));
+  location.href = "./Pages/edit.html";
+}
+
+let id = [];
+function del(e) {
+  id.push(e);
+
+  localStorage.setItem("req_delete_uuid", JSON.stringify(id));
+
+  let req_list = JSON.parse(localStorage.getItem("req_list"));
+
+  let req_uuid = JSON.parse(localStorage.getItem("req_delete_uuid"));
+
+  let req_card = req_list.find(function (obj) {
+    let check = obj["id"];
+    if (check == req_uuid) {
+      return true;
+    }
+  });
+
+  let del = req_list.indexOf(req_card);
+
+  let responce = confirm("Do you want to delete this?");
+
+  if (responce) {
+    req_list.splice(del, 1);
+    localStorage.setItem("req_list", JSON.stringify(req_list));
+    location.reload();
+  }
 }

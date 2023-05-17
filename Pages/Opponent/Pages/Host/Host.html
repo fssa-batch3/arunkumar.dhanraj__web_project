@@ -14,48 +14,86 @@
   <body>
     <main>
       <section>
-        <form>
+        <form id="form">
+          <div class="form-div logo">
+            <img alt="logo" />
+            <div class="name"></div>
+          </div>
           <div class="form-div">
-            <label for="type">Game type</label>
-            <select name="gametype" id="gametype">
+            <label for="type">Game type:</label>
+            <select name="gametype" id="gametype" class="select">
               <option value="None">None</option>
-              <option value="10over">10 Overs</option>
-              <option value="12over">12 Overs</option>
-              <option value="16over">16 Overs</option>
-              <option value="20over">20 Overs</option>
+              <option value="10 Overs">10 Overs</option>
+              <option value="12 Overs">12 Overs</option>
+              <option value="16 Overs">16 Overs</option>
+              <option value="20 Overs">20 Overs</option>
             </select>
           </div>
 
           <div class="form-div">
-            <label for="date">Pick a date</label>
-            <input type="date" id="day" name="day" />
+            <label for="date">Pick a date:</label>
+            <input type="date" id="date" name="date" />
           </div>
 
           <div class="form-div">
-            <label for="time">Pick a time</label>
+            <label for="time">Pick a time:</label>
             <input type="time" id="time" name="time" />
           </div>
 
           <div class="form-div">
-            <textarea
-              name="ground"
-              id="ground"
-              cols="30"
-              rows="8"
-              placeholder="Mention your preferred Ground"
-            ></textarea>
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" />
+          </div>
+
+          <div class="host-btn">
+            <button type="submit">Host now</button>
           </div>
         </form>
-        <div class="turf">
-          <p>Don't have a ground</p>
-          <p>
-            <a href="../../../Turf/Turf.html"> <button>Book venue</button></a>
-          </p>
-        </div>
-        <div class="host-btn">
-          <a href="../../Opponent.html"><button>Host now</button></a>
-        </div>
       </section>
     </main>
+    <script>
+      // Getting the details from the user's team
+      const product_params = new URLSearchParams(window.location.search);
+      let name = product_params.get("name");
+      let logo = product_params.get("logo");
+
+      // team's name and logo to be shown
+      document.querySelector(".form-div img").setAttribute("src", logo);
+      document.querySelector(".name").innerHTML = name;
+
+      let opponent = document.getElementById("form");
+      opponent.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Logged user
+        let login_email = JSON.parse(localStorage.getItem("details"));
+
+        let game_type = document.getElementById("gametype").value;
+        let date = document.getElementById("date").value;
+        let time = document.getElementById("time").value;
+        let place = document.getElementById("place").value;
+        let uuid = Date.now();
+
+        let arr = [];
+
+        let obj = {
+          game_type,
+          team_name: name,
+          team_logo: logo,
+          date,
+          time,
+          uuid,
+          place,
+          login_email,
+        };
+        if (localStorage.getItem("opponent_list") != null) {
+          arr = JSON.parse(localStorage.getItem("opponent_list"));
+        }
+
+        arr.push(obj);
+        console.log(arr);
+        localStorage.setItem("opponent_list", JSON.stringify(arr));
+        location.href = "../../Opponent.html";
+      });
+    </script>
   </body>
 </html>
