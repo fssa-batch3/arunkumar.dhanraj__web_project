@@ -29,7 +29,6 @@ for (let i = 0; i < turf_card.length; i++) {
   let img;
   img = document.createElement("img");
   img.setAttribute("src", turf_card[i]["image"]);
-  // img.setAttribute("alt", turf_card[i]["alt"]);
   div_details_image.append(img);
 
   //append
@@ -61,7 +60,6 @@ for (let i = 0; i < turf_card.length; i++) {
     //<a href="./Pages/Book.html"></a>
     let a;
     a = document.createElement("a");
-    // a.setAttribute("href", "./Pages/Book.html");
     div_details_book_btn.append(a);
 
     //<button>Book now</button>
@@ -151,7 +149,6 @@ function del(id) {
 // setting the id for the book button that who has created
 let host_id = [];
 function book_btn(e) {
-  // console.log(e);
   host_id.push(e);
 
   localStorage.setItem("turf_book_id", JSON.stringify(e));

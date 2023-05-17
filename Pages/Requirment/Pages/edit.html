@@ -36,7 +36,6 @@
       }
 
       .form-div {
-        /* margin-top: 5px; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -100,31 +99,10 @@
             placeholder="Arunkumar"
             disabled
           />
-          <!-- <label for="age">Age:</label>
-          <input type="number" id="age" name="age" placeholder="22" />
-          <label for="place">Place:</label>
-          <input
-            type="name"
-            id="place"
-            name="place"
-            placeholder="Guduvancherry"
-          />
-          <label for="mob-number">Mobile number:</label>
-          <input
-            type="text"
-            id="mob-number"
-            name="mob-number"
-            placeholder="+91"
-          /> -->
+
           <label for="name">Category:</label>
           <input type="text" id="category" disabled />
-          <!-- <select name="category" id="category">
-            <option value="All">All</option>
-            <option value="Bowler">Bowler</option>
-            <option value="Batter">Batter</option>
-            <option value="Wicket keeper">Wicket keeper</option>
-            <option value="All rounder">All rounder</option>
-          </select> -->
+
           <label for="textarea">Looking for:</label>
           <textarea name="comment" form="usrform" id="text">
 looking for a</textarea
@@ -148,16 +126,10 @@ looking for a</textarea
 
       const name = document.getElementById("fname");
       const req_msg = document.getElementById("text");
-      // const age = document.getElementById("age");
-      // const place = document.getElementById("place");
-      // const number = document.getElementById("mob-number");
       const type = document.getElementById("category");
 
       name.value = req_card["name"];
       req_msg.value = req_card["message"];
-      // age.value = req_card["age"];
-      // place.value = req_card["place"];
-      // number.value = req_card["number"];
       type.value = req_card["category"];
 
       document.getElementById("save").addEventListener("click", function (e) {
@@ -165,9 +137,6 @@ looking for a</textarea
 
         const name = document.getElementById("fname").value;
         const message = document.getElementById("text").value;
-        // const age = document.getElementById("age").value;
-        // const place = document.getElementById("place").value;
-        // const number = document.getElementById("mob-number").value;
         const category = document.getElementById("category").value;
 
         let req_obj = { name, message, category };

@@ -51,7 +51,7 @@ console.log(booked_turf);
 
 // if the user doesn't book anything
 let not_booked = document.querySelector(".not-book");
-if (booked_turf_list == null || booked_turf === null) {
+if (booked_turf_list.length == 0 || booked_turf.length === 0) {
   not_booked.style.display = "block";
 }
 
@@ -108,7 +108,6 @@ for (let i = 0; i < booked_turf?.length; i++) {
       //<a href="./Pages/Book.html"></a>
       let a;
       a = document.createElement("a");
-      // a.setAttribute("href", "./Pages/Book.html");
       div_details_book_btn.append(a);
 
       //<button>Book now</button>
@@ -144,7 +143,7 @@ let hosted_oppo = JSON.parse(localStorage.getItem("opponent_list"));
 console.log(hosted_oppo);
 
 // Appending the joined matches
-for (k = 0; k < user_matches?.length; k++) {
+for (let k = 0; k < user_matches?.length; k++) {
   for (let l = 0; l < hosted_oppo?.length; l++) {
     if (user_matches[k]["hosted_oppo_id"] == hosted_oppo[l]["uuid"]) {
       let div_container = document.createElement("div");

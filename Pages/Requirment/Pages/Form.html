@@ -16,18 +16,6 @@
     />
   </head>
   <body>
-    <!-- <header>
-      <div class="logo-div">
-        <img class="logo-pic" src=".././../../Assests/Images/Ball-new.jpg" />
-        <p class="logo-name">Creckett</p>
-      </div>
-      <nav class="nav-links">
-      
-
-        <a href="#"><button class="login-btn">Log in</button> </a>
-      </nav>
-    </header> -->
-
     <section id="sec-2">
       <div class="form-div">
         <form id="form">
@@ -39,39 +27,10 @@
             placeholder="Arunkumar"
             disabled
           />
-          <!-- <label for="age">Age:</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            placeholder="22"
-          
-          />
-          <label for="place">Place:</label>
-          <input
-           
-            type="name"
-            id="place"
-            name="place"
-            placeholder="Guduvancherry"
-          />
-          <label for="mob-number">Mobile number:</label>
-          <input
-          
-            type="text"
-            id="mob-number"
-            name="mob-number"
-            placeholder="+91"
-          /> -->
+
           <label for="name">Category:</label>
           <input type="text" id="category" disabled />
-          <!-- <select name="category" id="category">
-            <option value="All">All</option>
-            <option value="Bowler">Bowler</option>
-            <option value="Batter">Batter</option>
-            <option value="Wicket keeper">Wicket keeper</option>
-            <option value="All rounder">All rounder</option>
-          </select> -->
+
           <label for="textarea">Looking for:</label>
           <textarea name="comment" form="usrform" id="text">
 looking for a</textarea
@@ -110,9 +69,6 @@ looking for a</textarea
         e.preventDefault();
         let name = document.getElementById("fname").value;
         let message = document.getElementById("text").value;
-        // let age = document.getElementById("age").value;
-        // let place = document.getElementById("place").value;
-        // let number = document.getElementById("mob-number").value;
         let login_email = JSON.parse(localStorage.getItem("details"));
         let profile_logo = logged_user["profile"];
         let category = document.getElementById("category").value;
@@ -123,9 +79,6 @@ looking for a</textarea
 
         obj["name"] = name;
         obj["message"] = `${name} is ${message}`;
-        // obj["age"] = age;
-        // obj["place"] = place;
-        // obj["number"] = number;
         obj["login_email"] = login_email;
         obj["category"] = category;
         obj["profile_logo"] = profile_logo;

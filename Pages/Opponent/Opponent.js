@@ -41,7 +41,6 @@ for (let i = 0; i < oppo?.length; i++) {
   // <div class="add-user-div">
   let div_adduser = document.createElement("div");
   div_adduser.setAttribute("class", oppo[i]["uuid"]);
-  // div_adduser.setAttribute("class", "add-user-div");
   div_adduser.setAttribute("id", "add-user-div");
   div_opponent_logo.append(div_adduser);
 
@@ -115,8 +114,6 @@ for (let i = 0; i < oppo?.length; i++) {
     edit.setAttribute("src", "../Requirment/Assests/Images/icon/pencil.svg");
     edit.setAttribute("alt", "edit");
     edit.setAttribute("id", "edit");
-    // edit.setAttribute("class", oppo[i]["uuid"]);
-    // edit.setAttribute("onclick", "edit()");
     a_edit.append(edit);
 
     let a_delete = document.createElement("a");
@@ -131,8 +128,6 @@ for (let i = 0; i < oppo?.length; i++) {
     del = document.createElement("img");
     del.setAttribute("src", "../Requirment/Assests/Images/icon/delete.svg");
     del.setAttribute("alt", "delete");
-    // del.setAttribute("id", oppo[i]["uuid"]);
-    // del.setAttribute("onclick", "del(this.id)");
     a_delete.append(del);
   }
   document.getElementById("main-container").append(div_container);
@@ -161,22 +156,18 @@ function host_oppo() {
 }
 
 // If the user had already created the team they can join
-let host_id = [];
+
 function join_btn(e) {
   if (logged === null) {
     alert("If you want join this match, You have to login");
-    return;
   }
   // the one who creates the match can;t join
   let uuid = oppo.find((id) => e == id["uuid"]);
   if (uuid["login_email"] == logged) {
-    alert(
-      "Are you stupid? You only created this match, You can't join this match"
-    );
+    alert("You only created this match, You can't join this match");
     return;
   }
   if (user_team.length != 0) {
-    host_id.push(e);
     localStorage.setItem("oppo_join_uuid", JSON.stringify(e));
     console.log("check");
     window.location.href = "./Pages/Join/Join.html";

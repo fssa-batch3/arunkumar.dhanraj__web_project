@@ -6,6 +6,7 @@ body {
 table {
   font-size: 18px;
   font-weight: 500;
+  margin-left: 10px;
 }
 button,
 input,
@@ -43,9 +44,7 @@ textarea {
 .user-row {
   margin-bottom: 14px;
 }
-table {
-  margin-left: 10px;
-}
+
 .table-user-information > tbody > tr {
   border-top: 1px solid #ccc;
 }
@@ -66,11 +65,8 @@ table {
 .table-user-information > tbody > tr > td {
   border-top: 0;
 }
-/* .phone {
-  width: 200px;
-} */
+
 select {
-  /* text-align: center; */
   padding: 0.25rem 3.1rem 0.25rem 0rem;
   outline: none;
 }
